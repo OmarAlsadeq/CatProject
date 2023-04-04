@@ -21,7 +21,7 @@ public class AuthenticationFilter extends HandlerInterceptorAdapter {
     @Autowired
     AuthenticationController authenticationController;
 
-    private static final List<String> whitelist = Arrays.asList("/login", "/register", "/logout", "/css", "/");
+    private static final List<String> whitelist = Arrays.asList("user/login", "user/register", "/logout", "/css", "/");
 
     @Override
     public boolean preHandle(HttpServletRequest request,
@@ -41,7 +41,7 @@ public class AuthenticationFilter extends HandlerInterceptorAdapter {
         }
 
         // The user is NOT logged in
-        response.sendRedirect("/login");
+        response.sendRedirect("user/login");
         return false;
     }
 

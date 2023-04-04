@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Rescue Meow</title>
+</head>
+<body>
+<h2> All Cats</h2>
+<nav>
+    <ul>
+        <li><a href="cats/create">Create Cat</a></li>
+    </ul>
+</nav>
+
+<ul>
+  <th:block th:each="cat : ${cats}">
+    <li th:text="${cat}"></li>
+  </th:block>
+</ul>
+
+
+</body>
+</html>

@@ -5,6 +5,8 @@ import com.example.demo.data.CatRepository;
 import com.example.demo.model.Cat;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -13,17 +15,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-@RequestMapping("create")
+//page lives at /cats
+@RequestMapping("cats")
 public class CatController {
 
-    @Autowired
-    private CatRepository catRepository;
 
-    private static List<Cat> cats = new ArrayList<>();
+    @GetMapping
+    public String displayAllCats(Model model){
+        List<String> cats = new ArrayList<>();
+        cats.add("Calico");
+        cats.add("Ginger");
+        cats.add("TortoiseShell");
+        cats.add("Siamese");
+        model.addAttribute("cats", cats);
+        return "cats/index";
+    }
 
-    @PostMapping("create")
-    public String processCatForm(@RequestParam String catName){
-     cats.add(new Cat(catName));
-     return "redirect:";
+    @GetMapping("create")
+    public String renderCreateCatForm(){
+        return "cats/create";
     }
 }
