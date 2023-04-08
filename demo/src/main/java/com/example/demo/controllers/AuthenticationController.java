@@ -118,7 +118,7 @@ public class AuthenticationController {
 
         setUserInSession(request.getSession(), theUser);
 
-        return "redirect:";
+        return "redirect:/user/index";
     }
 
     @GetMapping("/logout")

@@ -19,15 +19,12 @@ import java.util.List;
 @RequestMapping("cats")
 public class CatController {
 
+    private static List<String> cats = new ArrayList<>();
+
 
     @GetMapping
     public String displayAllCats(Model model){
-        List<String> cats = new ArrayList<>();
-        cats.add("Calico");
-        cats.add("Ginger");
-        cats.add("TortoiseShell");
-        cats.add("Siamese");
-        model.addAttribute("cats", cats);
+       model.addAttribute("cats", cats);
         return "cats/index";
     }
 
@@ -35,4 +32,10 @@ public class CatController {
     public String renderCreateCatForm(){
         return "cats/create";
     }
+
+    @PostMapping("create")
+    public String CreateCat(@RequestParam String catName){
+        cats.add(catName);
+        return "redirect:/cats";
+    };
 }

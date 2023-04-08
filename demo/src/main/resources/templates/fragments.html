@@ -1,13 +1,68 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
-<head th:fragment="head">
-    <meta charset="UTF-8"/>
-    <title>Cat Project</title>
+<head>
+    <nav th:fragment="head">
+        <div class="header">
+        <link rel="stylesheet" href="style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-
+    <h1>Rescue Meow</h1>
+        </div>
+    </nav>
 </head>
 <body>
+<nav th:fragment="navigation">
+    <ul>
+        <li><a href="/cats">All Cats</a></li>
+    </ul>
+</nav>
+<nav th:fragment="sideLayout">
+    <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+            <a href="/">Home</a>
+            <a href="user/login">Log In</a>
+            <a href="user/register">Register</a>
+            <a href="#">About</a>
+        </div>
+    </div>
+    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+
+    <script>
+function openNav() {
+  document.getElementById("myNav").style.width = "100%";
+}
+
+function closeNav() {
+  document.getElementById("myNav").style.width = "0%";
+}
+</script>
+</nav>
+
+<nav th:fragment="sidelay">
+    <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+            <a href="/">Home</a>
+            <a href="login">Log In</a>
+            <a href="register">Register</a>
+            <a href="#">About</a>
+        </div>
+    </div>
+    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+
+    <script>
+function openNav() {
+  document.getElementById("myNav").style.width = "100%";
+}
+
+function closeNav() {
+  document.getElementById("myNav").style.width = "0%";
+}
+</script>
+</nav>
+
 
 
 

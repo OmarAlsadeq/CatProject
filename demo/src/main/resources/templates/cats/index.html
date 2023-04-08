@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head>
-    <meta charset="UTF-8">
-    <title>Rescue Meow</title>
+    <nav th:replace="fragments :: head"></nav>
 </head>
 <body>
 <h2> All Cats</h2>
+
+<p th:unless="${cats} and ${cats.size()}">No Cats!</p>
 <nav>
     <ul>
         <li><a href="cats/create">Create Cat</a></li>
