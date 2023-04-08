@@ -1,24 +1,28 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<html lang="en" xmlns:th="http://www.thymeleaf.org/" xmlns="http://www.w3.org/1999/html">
 <head>
     <nav th:replace="fragments :: head"></nav>
 </head>
-<body>
-<h2> All Cats</h2>
+<body class="container">
+<h2 class="headers"> All Cats</h2>
 
-<p th:unless="${cats} and ${cats.size()}">No Cats!</p>
 <nav>
     <ul>
-        <li><a href="cats/create">Create Cat</a></li>
+        <a href="cats/create">Create Cat</a>
     </ul>
 </nav>
 
-<ul>
-  <th:block th:each="cat : ${cats}">
-    <li th:text="${cat}"></li>
-  </th:block>
-</ul>
-
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th>Name</th>
+    </tr>
+    </thead>
+  <tr th:each="cat : ${cats}">
+    <td th:text="${cat}"></td>
+  </tr>
+</table>
+<p th:unless="${cats} and ${cats.size()}">No Cats!</p>
 
 </body>
 </html>

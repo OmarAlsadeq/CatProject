@@ -2,19 +2,19 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head>
     <nav th:fragment="head">
-        <div class="header">
-        <link rel="stylesheet" href="style.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script th:src="@{/script.js}"></script>
+        <link th:href="@{/style.css}" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    <h1>Rescue Meow</h1>
-        </div>
+    <h1 class="header">Rescue Meow</h1>
     </nav>
 </head>
-<body>
+<body class="container">
 <nav th:fragment="navigation">
-    <ul>
-        <li><a href="/cats">All Cats</a></li>
+    <ul class="nav">
+        <li class="nav-item"><a class="nav-link" href="/cats">All Cats</a></li>
+        <li class="nav-item"><a class="nav-link" href="/cats/create">Create Cat</a></li>
     </ul>
 </nav>
 <nav th:fragment="sideLayout">

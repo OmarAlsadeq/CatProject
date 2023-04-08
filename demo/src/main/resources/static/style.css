@@ -1,5 +1,10 @@
 .header {
-  background-color: #1E90FF;
+  background-color: #07a6f5;
+  text-align: center;
+  padding: 20px;
+}
+
+.headers {
   text-align: center;
   padding: 20px;
 }
