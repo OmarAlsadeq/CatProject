@@ -14,51 +14,59 @@
 
 <li>
     <label> Date Cat Was Last Seen:<span class="form-required">*</span> </label>
-    <div class="form-group" data-layout="half">
-        <div data-wrapper-react="true">
-            <div style="display:none"><span class="form-sub-label-container" style="vertical-align:top"><input type="tel" size="2" data-maxlength="2" data-age="" maxlength="2" value="" required="" autocomplete="off" aria-labelledby="label_3 sublabel_3_month" inputmode="numeric"><span class="date-separate" aria-hidden="true">&nbsp;-</span><label class="form-sub-label" style="min-height:13px" aria-hidden="false">Month</label></span><span class="form-sub-label-container" style="vertical-align:top"><input type="tel" class="form-textbox validate[required, limitDate]" size="2" data-maxlength="2" data-age="" maxlength="2" value="" required="" autocomplete="off" aria-labelledby="label_3 sublabel_3_day" inputmode="numeric"><span class="date-separate" aria-hidden="true">&nbsp;-</span><label style="min-height:13px" aria-hidden="false">Day</label></span><span class="form-sub-label-container" style="vertical-align:top"><input type="tel" class="form-textbox validate[required, limitDate]" size="4" data-maxlength="4" data-age="" maxlength="4" value="" required="" autocomplete="off" aria-labelledby="label_3 sublabel_3_year"><label style="min-height:13px" aria-hidden="false">Year</label></span></div><span class="form-sub-label-container" style="vertical-align:top"><input type="text" class="form-textbox validate[required, limitDate, validateLiteDate]" id="lite_mode_3" size="12" data-maxlength="12" data-age="" value="" required="" data-format="mmddyyyy" data-seperator="-" placeholder="MM-DD-YYYY" autocomplete="off" aria-labelledby="label_3 sublabel_3_litemode" inputmode="numeric"><img class=" newDefaultTheme-dateIcon icon-liteMode" alt="Pick a Date" id="input_3_pick" src="https://cdn.jotfor.ms/images/calendar.png" data-component="datetime" aria-hidden="true" data-allow-time="No" data-version="v2"><label class="form-sub-label" for="lite_mode_3" id="sublabel_3_litemode" style="min-height:13px" aria-hidden="false">Date</label></span>
-        </div>
-    </div>
-</li>
-<li data-type="control_textbox"><label> Cat's Name<span>*</span> </label>
-    <div class="form-group" data-layout="half"> <input type="text" name="catName" data-type="input-textbox" data-defaultvalue="" style="width:310px" size="310" value="" data-component="textbox" aria-labelledby="label_5" required="" class="form-control"> </div>
-</li>
-
-
-<li class="form-line form-line-column form-col-1 jf-required" data-type="control_radio"><label class="form-label form-label-top form-label-auto"> Sex<span class="form-required">*</span> </label>
-    <div class="form-input-wide jf-required" data-layout="full">
-        <div class="form-single-column" role="group" aria-labelledby="label_6" data-component="radio"><span class="form-radio-item" style="clear:left"><span class="dragger-item"></span><input type="radio" aria-describedby="label_6" class="form-radio validate[required]" value="Female" required=""><label>Female</label></span><span class="form-radio-item" style="clear:left"><span class="dragger-item"></span><input type="radio" aria-describedby="label_6" class="form-radio validate[required]" value="Male" required=""><label> Male</label></span></div>
+    <div class="form-group">
+    <div style="display:none">
+            <input type="tel" class="form-control" name="catDate" size="2" data-maxlength="2" data-age="" maxlength="2" value="" required="" autocomplete="off" inputmode="numeric">
+            <label class="form-sub-label" style="min-height:13px" aria-hidden="false">Month</label>
+        <input type="tel" class="form-control" size="2" data-maxlength="2" data-age="" maxlength="2" value="" required="" autocomplete="off"  inputmode="numeric">
+        <label style="min-height:13px" aria-hidden="false">Day</label></span>
+            <input type="tel" class="form-control" size="4" data-maxlength="4" data-age="" maxlength="4" value="" required="" autocomplete="off">
+            <label style="min-height:13px" aria-hidden="false">Year</label></span></div>
+        <input type="text" class="form-control" size="12" data-maxlength="12" data-age="" value="" required="" data-format="mmddyyyy" data-seperator="-" placeholder="MM-DD-YYYY" autocomplete="off" inputmode="numeric">
+        <img class=" newDefaultTheme-dateIcon icon-liteMode" alt="Pick a Date" id="input_3_pick" src="https://cdn.jotfor.ms/images/calendar.png" data-component="datetime" aria-hidden="true" data-allow-time="No" data-version="v2">
+        <label style="min-height:13px" >Date</label></span>
     </div>
 </li>
 
+<li><label> Cat's Name<span class="form-required">*</span> </label>
+    <div class="form-group" data-layout="half"> <input type="text" name="catName" class="form-control" data-type="input-textbox" data-defaultvalue="" style="width:310px" size="310" value="" data-component="textbox" aria-labelledby="label_5" required=""> </div>
+</li>
 
-<li class="form-line form-line-column form-col-2 jf-required" data-type="control_radio" id="id_7"><label> Spayed / Neutered?<span class="form-required">*</span> </label>
+
+<li><label>Sex<span class="form-required">*</span> </label>
+    <div class="form-group">
+        <div><span><input type="radio" name="catSex" class="form-control" value="Female" required=""><label>Female</label></span><span><input type="radio" value="Male" required="" class="form-control"><label> Male</label></span></div>
+    </div>
+</li>
+
+
+<li><label> Spayed / Neutered?<span class="form-required">*</span> </label>
+    <div class="form-group">
+        <div><span><label>Yes</label></span><span style="clear:left"><span></span><input type="radio" name="catFixed" class="form-control" value="No" required=""><label> No</label></span><span style="clear:left"><span></span><input type="radio" class="form-control" value="Unknown" required=""><label> Unknown</label></span></div>
+    </div>
+</li>
+
+
+<li><label> Age<span>*</span> </label>
+    <div class="form-group"> <span style="vertical-align:top"><input type="text" name="catAge" class="form-control" data-type="input-textbox"  data-defaultvalue="" style="width:310px" size="310" value="" data-component="textbox" required=""><label>Example: 1 year</label></span> </div>
+</li>
+
+
+<li class="form-group"><label> Breed<span>*</span> </label>
     <div data-layout="full">
-        <div role="group" aria-labelledby="label_7" data-component="radio"><span style="clear:left"><input type="radio" aria-describedby="label_7"  value="Yes" required=""><label>Yes</label></span><span style="clear:left"><span></span><input type="radio" aria-describedby="label_7" value="No" required=""><label> No</label></span><span style="clear:left"><span></span><input type="radio" aria-describedby="label_7" class="form-radio validate[required]" value="Unknown" required=""><label> Unknown</label></span></div>
+        <div><span style="clear:left"><span></span><input type="radio" name="catBreed" class="form-control"  value="Domestic Short Hair" required=""><label> Domestic Short Hair</label></span><span style="clear:left"><input type="radio" class="form-control" value="Domestic Medium Hair" required=""><label> Domestic Medium Hair</label></span><span class="form-radio-item" style="clear:left"><span class="dragger-item"></span><input type="radio" class="form-control" value="Domestic Long Hair" required=""><label> Domestic Long Hair</label></span><span class="form-radio-item formRadioOther" style="clear:left"><input type="radio" value="other" tabindex="0" class="form-control"><label style="text-indent:0"> Other</label><span class="other-input-container is-none" style=""><input type="text" class="form-control" data-otherhint="Other" size="15" data-placeholder="Please type another option here" placeholder="Please type another option here"></span></span></div>
     </div>
 </li>
 
 
-<li data-type="control_textbox" id="id_9"><label> Age<span>*</span> </label>
-    <div  data-layout="half"> <span style="vertical-align:top"><input type="text"  data-type="input-textbox"  data-defaultvalue="" style="width:310px" size="310" value="" data-component="textbox" aria-labelledby="label_9 sublabel_input_9" required=""><label style="min-height:13px" aria-hidden="false">Example: 1 year</label></span> </div>
+<li><label> Color<span>*</span> </label>
+    <div class="form-group"><input type="text" name="catColor" class="form-control" data-type="input-textbox" data-defaultvalue="" style="width:310px" size="310" value="" data-component="textbox" required=""></div>
 </li>
 
 
-<li data-type="control_radio"><label> Breed<span>*</span> </label>
+<li class="form-group"><label> Ears<span>*</span> </label>
     <div data-layout="full">
-        <div role="group" aria-labelledby="label_47" data-component="radio"><span style="clear:left"><span class="dragger-item"></span><input type="radio" aria-describedby="label_47" value="Domestic Short Hair" required=""><label> Domestic Short Hair</label></span><span style="clear:left"><span class="dragger-item"></span><input type="radio" aria-describedby="label_47" class="form-radio validate[required]" value="Domestic Medium Hair" required=""><label> Domestic Medium Hair</label></span><span class="form-radio-item" style="clear:left"><span class="dragger-item"></span><input type="radio" aria-describedby="label_47" class="form-radio validate[required]" value="Domestic Long Hair" required=""><label> Domestic Long Hair</label></span><span class="form-radio-item formRadioOther" style="clear:left"><input type="radio" value="other" tabindex="0" aria-label="Other"><label style="text-indent:0"> Other</label><span id="other_47_input" class="other-input-container is-none" style=""><input type="text" data-otherhint="Other" size="15" id="input_47" data-placeholder="Please type another option here" placeholder="Please type another option here"></span></span></div>
-    </div>
-</li>
-
-
-<li data-type="control_textbox" id="id_11"><label> Color<span>*</span> </label>
-    <div data-layout="half"> <input type="text" data-type="input-textbox" data-defaultvalue="" style="width:310px" size="310" value="" data-component="textbox" aria-labelledby="label_11" required=""> </div>
-</li>
-
-
-<li data-type="control_radio"><label> Ears<span>*</span> </label>
-    <div data-layout="full">
-        <div data-columncount="2" role="group" aria-labelledby="label_45" data-component="radio"><span class="form-radio-item"><span class="dragger-item"></span><input type="radio" aria-describedby="label_45" value="Erect" required=""><label>Erect</label></span><span class="form-radio-item"><span class="dragger-item"></span><input type="radio" aria-describedby="label_45"value="Ear-Tipped" required=""><label>Ear-Tipped</label></span><span class="form-radio-item" style="clear:left"><span class="dragger-item"></span><input type="radio" aria-describedby="label_45" value="Drooping / Folded" required=""><label>Drooping / Folded</label></span><span class="form-radio-item"><span class="dragger-item"></span><input type="radio" aria-describedby="label_45" value="Unknown" required=""><label>Unknown</label></span></div>
+        <div data-columncount="2" role="group" data-component="radio"><span><input type="radio" name="catEars" class="form-control" value="Erect" required=""><label>Erect</label></span><span><input type="radio" class="form-control" value="Ear-Tipped" required=""><label>Ear-Tipped</label></span><span class="form-radio-item" style="clear:left"><input type="radio" class="form-control" value="Drooping / Folded" required=""><label>Drooping / Folded</label></span><span class="form-radio-item"><input type="radio" class="form-control" value="Unknown" required=""><label>Unknown</label></span></div>
     </div>
 </li>
 
@@ -77,33 +85,39 @@
 </li>
 
 <li data-type="control_textarea"><label> Location Lost<span class="form-required">*</span> </label>
-    <div data-layout="full"> <span style="vertical-align:top"><textarea style="width:648px;height:80px" data-component="textarea" required="" aria-labelledby="label_10 sublabel_input_10" data-customhint="Type here..." customhinted="true" placeholder="Type here..." spellcheck="false"></textarea><label style="min-height:13px" aria-hidden="false">Address or cross streets</label></span> </div>
+    <div data-layout="full"> <span style="vertical-align:top"><textarea name="catLocation" style="width:648px;height:80px" data-component="textarea" required="" aria-labelledby="label_10 sublabel_input_10" data-customhint="Type here..." customhinted="true" placeholder="Type here..." spellcheck="false"></textarea><label style="min-height:13px" aria-hidden="false">Address or cross streets</label></span> </div>
 </li>
 
 
 <li data-type="control_textbox"><label> ZIP Code of Location Lost<span class="form-required">*</span> </label>
-    <div data-layout="half"> <input type="text" data-type="input-textbox" class="form-textbox validate[required]" data-defaultvalue="" style="width:310px" size="310" value="" data-component="textbox" aria-labelledby="label_30" required=""> </div>
+    <div data-layout="half"> <input type="text" name="catLost" data-type="input-textbox" class="form-textbox validate[required]" data-defaultvalue="" style="width:310px" size="310" value="" data-component="textbox" aria-labelledby="label_30" required=""> </div>
 </li>
 
 
-<li data-type="control_radio"><label> Was your cat wearing a collar or harness?<span>*</span> </label>
+<li class="form-group"><label> Was your cat wearing a collar or harness?<span>*</span> </label>
     <div data-layout="full">
-        <div role="group" aria-labelledby="label_20" data-component="radio"><span style="clear:left"><span></span><input type="radio" aria-describedby="label_20" value="Yes" required=""><label>Yes</label></span><span style="clear:left"><span></span><input type="radio" aria-describedby="label_20" value="No" required=""><label>No</label></span><span style="clear:left"><span></span><input type="radio" aria-describedby="label_20" value="Unknown" required=""><label>Unknown</label></span></div>
+        <div role="group" data-component="radio"><span style="clear:left"><span></span><input type="radio" name="catCollar" class="form-control" value="Yes" required=""><label>Yes</label></span><span style="clear:left"><span></span><input type="radio" class="form-control" value="No" required=""><label>No</label></span><span style="clear:left"><span></span><input type="radio" class="form-control" value="Unknown" required=""><label>Unknown</label></span></div>
     </div>
 </li>
 
 
-<li data-type="control_radio"><label class="form-label form-label-top form-label-auto" id="label_21"> Is your cat microchipped?<span>*</span> </label>
-    <div data-layout="full">
-        <div role="group" aria-labelledby="label_21" data-component="radio"><span style="clear:left"><span></span><input type="radio" aria-describedby="label_21" value="Yes" required=""><label>Yes</label></span><span style="clear:left"><span></span><input type="radio" aria-describedby="label_21" value="No" required=""><label>No</label></span><span style="clear:left"><span></span><input type="radio" aria-describedby="label_21" value="Unknown" required=""><label>Unknown</label></span></div>
+<li class="form-group"><label> Is your cat microchipped?<span>*</span> </label>
+    <div>
+        <div role="group" data-component="radio"><span style="clear:left"><span></span><input type="radio" name="catChip" class="form-control" value="Yes" required=""><label>Yes</label></span><span style="clear:left"><span></span><input type="radio" class="form-control" value="No" required=""><label>No</label></span><span style="clear:left"><span></span><input type="radio" class="form-control" value="Unknown" required=""><label>Unknown</label></span></div>
     </div>
 </li>
 
-<li data-type="control_textarea"><label> Describe Your Cat. The more information you can give us about your cat’s physical characteristics, the better! How will we be able to identify YOUR cat when it comes in the door?<span>*</span> </label>
-    <div data-layout="full"> <textarea style="width:648px;height:163px" data-component="textarea" required="" aria-labelledby="label_19" data-customhint="Type here..." customhinted="true" placeholder="Type here..." spellcheck="false"></textarea> </div>
+<li class="form-group"><label> Describe Your Cat. The more information you can give us about your cat’s physical characteristics, the better! How will we be able to identify YOUR cat when it comes in the door?<span>*</span> </label>
+    <div><textarea style="width:648px;height:163px" name="catDescription" data-component="textarea" required="" aria-labelledby="label_19" data-customhint="Type here..." customhinted="true" placeholder="Type here..." spellcheck="false"></textarea> </div>
 </li>
 
+<div class="form-group">
+  <label for="exampleFormControlFile1">Upload Cat Picture</label>
+  <input type="file" name="catPic" class="form-control-file" id="exampleFormControlFile1">
+</div>
+<div class="form-group">
     <input type="submit" value="Create Cat" class="btn btn-success">
+</div>
 </form>
 
 

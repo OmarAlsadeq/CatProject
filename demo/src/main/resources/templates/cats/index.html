@@ -16,10 +16,20 @@
     <thead>
     <tr>
         <th>Name</th>
+        <th>Age</th>
+        <th>Date Last Seen</th>
+        <th>Sex</th>
+        <th>Fixed</th>
+        <th>Breed</th>
+
     </tr>
     </thead>
   <tr th:each="cat : ${cats}">
-    <td th:text="${cat}"></td>
+    <td th:text="${cat.catName}"></td>
+     <td th:text="${cat.catAge}"></td>
+      <td th:text="${cat.catDate}"></td>
+      <td th:text="${cat.catSex}"></td>
+      <td th:text="${cat.catBreed}"></td>
   </tr>
 </table>
 <p th:unless="${cats} and ${cats.size()}">No Cats!</p>

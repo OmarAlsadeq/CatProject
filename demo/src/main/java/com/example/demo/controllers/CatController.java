@@ -1,6 +1,5 @@
 package com.example.demo.controllers;
 
-import com.example.demo.data.CatRepository;
 
 import com.example.demo.model.Cat;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,23 +18,38 @@ import java.util.List;
 @RequestMapping("cats")
 public class CatController {
 
-    private static List<String> cats = new ArrayList<>();
+    private static List<Cat> cats = new ArrayList<>();
 
 
     @GetMapping
     public String displayAllCats(Model model){
-       model.addAttribute("cats", cats);
+        model.addAttribute("title","All Cats");
+        model.addAttribute("cats", cats);
         return "cats/index";
     }
 
     @GetMapping("create")
-    public String renderCreateCatForm(){
+    public String renderCreateCatForm(Model model){
+        model.addAttribute("title", "Create Cat");
         return "cats/create";
     }
 
     @PostMapping("create")
-    public String CreateCat(@RequestParam String catName){
-        cats.add(catName);
-        return "redirect:/cats";
+    public String CreateCat(@RequestParam String catName,
+                            @RequestParam String catDate,
+                            @RequestParam String catSex,
+                            @RequestParam String catFixed,
+                            @RequestParam String catAge,
+                            @RequestParam String catBreed,
+                            @RequestParam String catColor,
+                            @RequestParam String catEars,
+                            @RequestParam String catLocation,
+                            @RequestParam String catLost,
+                            @RequestParam String catCollar,
+                            @RequestParam String catChip,
+                            @RequestParam String catDescription,
+                            @RequestParam String catPic){
+        cats.add(new Cat(catName, catDate, catSex,catFixed,catAge,catBreed,catColor,catEars,catLocation,catLost,catCollar,catChip,catDescription,catPic));
+        return "redirect:";
     };
 }

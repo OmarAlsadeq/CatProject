@@ -9,25 +9,53 @@ public class Cat extends AbstractEntity {
     @Size(min = 3, max = 20, message = "Name must be between 3 and 20 characters")
     String catName;
 
-    int age;
+    String catDate;
 
-    String color;
+    String catSex;
 
-    String breed;
+    String catFixed;
 
-    String sex;
+    String catAge;
 
-    int dateSeen;
+    String catBreed;
 
-    public Cat(String catName, int age, String color, String breed, String sex, int dateSeen){
-        this.catName = catName;
-        this.age = age;
-        this.color = color;
-        this.breed = breed;
-        this.sex = sex;
-        this.dateSeen = dateSeen;
-    }
+    String catColor;
+
+    String catEars;
+
+    String catLocation;
+
+    String catLost;
+
+    String catCollar;
+
+    String catChip;
+
+    String catDescription;
+
+    String catPic;
+
+
+
     public Cat(){}
+
+    public Cat(String catName, String catDate, String catSex, String catFixed, String catAge, String catBreed, String catColor, String catEars, String catLocation, String catLost, String catCollar, String catChip, String catDescription, String catPic) {
+        super();
+        this.catName=catName;
+        this.catDate=catDate;
+        this.catSex=catSex;
+        this.catFixed=catFixed;
+        this.catAge=catAge;
+        this.catBreed=catBreed;
+        this.catColor=catColor;
+        this.catEars=catEars;
+        this.catLocation=catLocation;
+        this.catLost=catLost;
+        this.catCollar=catCollar;
+        this.catChip=catChip;
+        this.catDescription=catDescription;
+        this.catPic=catPic;
+    }
 
     public String getCatName() {
         return catName;
@@ -37,45 +65,110 @@ public class Cat extends AbstractEntity {
         this.catName = catName;
     }
 
-    public int getAge() {
-        return age;
+    public String getCatDate() {
+        return catDate;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setCatDate(String catDate) {
+        this.catDate = catDate;
     }
 
-    public String getColor() {
-        return color;
+    public String getCatSex() {
+        return catSex;
     }
 
-    public void setColor(String color) {
-        this.color = color;
+    public void setCatSex(String catSex) {
+        this.catSex = catSex;
     }
 
-    public String getBreed() {
-        return breed;
+    public String getCatFixed() {
+        return catFixed;
     }
 
-    public void setBreed(String breed) {
-        this.breed = breed;
+    public void setCatFixed(String catFixed) {
+        this.catFixed = catFixed;
     }
 
-    public String getSex() {
-        return sex;
+    public String getCatAge() {
+        return catAge;
     }
 
-    public void setSex(String sex) {
-        this.sex = sex;
+    public void setCatAge(String catAge) {
+        this.catAge = catAge;
     }
 
-    public int getDateSeen() {
-        return dateSeen;
+    public String getCatBreed() {
+        return catBreed;
     }
 
-    public void setDateSeen(int dateSeen) {
-        this.dateSeen = dateSeen;
+    public void setCatBreed(String catBreed) {
+        this.catBreed = catBreed;
     }
+
+    public String getCatColor() {
+        return catColor;
+    }
+
+    public void setCatColor(String catColor) {
+        this.catColor = catColor;
+    }
+
+    public String getCatEars() {
+        return catEars;
+    }
+
+    public void setCatEars(String catEars) {
+        this.catEars = catEars;
+    }
+
+    public String getCatLocation() {
+        return catLocation;
+    }
+
+    public void setCatLocation(String catLocation) {
+        this.catLocation = catLocation;
+    }
+
+    public String getCatLost() {
+        return catLost;
+    }
+
+    public void setCatLost(String catLost) {
+        this.catLost = catLost;
+    }
+
+    public String getCatCollar() {
+        return catCollar;
+    }
+
+    public void setCatCollar(String catCollar) {
+        this.catCollar = catCollar;
+    }
+
+    public String getCatChip() {
+        return catChip;
+    }
+
+    public void setCatChip(String catChip) {
+        this.catChip = catChip;
+    }
+
+    public String getCatDescription() {
+        return catDescription;
+    }
+
+    public void setCatDescription(String catDescription) {
+        this.catDescription = catDescription;
+    }
+
+    public String getCatPic() {
+        return catPic;
+    }
+
+    public void setCatPic(String catPic) {
+        this.catPic = catPic;
+    }
+
     @Override
     public String toString(){
         return catName;
