@@ -23,6 +23,10 @@ public class Cat extends AbstractEntity {
 
     String catEars;
 
+    String catTail;
+
+    String catClaw;
+
     String catLocation;
 
     String catLost;
@@ -37,10 +41,7 @@ public class Cat extends AbstractEntity {
 
 
 
-    public Cat(){}
-
-    public Cat(String catName, String catDate, String catSex, String catFixed, String catAge, String catBreed, String catColor, String catEars, String catLocation, String catLost, String catCollar, String catChip, String catDescription, String catPic) {
-        super();
+    public Cat(String catName, String catDate, String catSex, String catFixed, String catAge, String catBreed, String catColor, String catEars, String catTail, String catClaw, String catLocation, String catLost, String catCollar, String catChip, String catDescription, String catPic) {
         this.catName=catName;
         this.catDate=catDate;
         this.catSex=catSex;
@@ -49,12 +50,18 @@ public class Cat extends AbstractEntity {
         this.catBreed=catBreed;
         this.catColor=catColor;
         this.catEars=catEars;
+        this.catTail=catTail;
+        this.catClaw=catClaw;
         this.catLocation=catLocation;
         this.catLost=catLost;
         this.catCollar=catCollar;
         this.catChip=catChip;
         this.catDescription=catDescription;
         this.catPic=catPic;
+    }
+
+    public Cat(String catName, String catDate, String catSex, String catFixed, String catAge, String catBreed, String catColor, String catEars, String catTail, String catLocation, String catLost, String catCollar, String catChip, String catDescription, String catPic) {
+        super();
     }
 
     public String getCatName() {
@@ -119,6 +126,22 @@ public class Cat extends AbstractEntity {
 
     public void setCatEars(String catEars) {
         this.catEars = catEars;
+    }
+
+    public String getCatTail() {
+        return catTail;
+    }
+
+    public void setCatTail(String catTail) {
+        this.catTail = catTail;
+    }
+
+    public String getCatClaw() {
+        return catClaw;
+    }
+
+    public void setCatClaw(String catClaw) {
+        this.catClaw = catClaw;
     }
 
     public String getCatLocation() {

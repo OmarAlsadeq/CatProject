@@ -22,27 +22,40 @@
         <label style="min-height:13px" aria-hidden="false">Day</label></span>
             <input type="tel" class="form-control" size="4" data-maxlength="4" data-age="" maxlength="4" value="" required="" autocomplete="off">
             <label style="min-height:13px" aria-hidden="false">Year</label></span></div>
-        <input type="text" class="form-control" size="12" data-maxlength="12" data-age="" value="" required="" data-format="mmddyyyy" data-seperator="-" placeholder="MM-DD-YYYY" autocomplete="off" inputmode="numeric">
+        <input type="text" class="form-control" size="12" data-maxlength="12" style="width:310px" data-age="" value="" required="" data-format="mmddyyyy" data-seperator="-" placeholder="MM-DD-YYYY" autocomplete="off" inputmode="numeric">
         <img class=" newDefaultTheme-dateIcon icon-liteMode" alt="Pick a Date" id="input_3_pick" src="https://cdn.jotfor.ms/images/calendar.png" data-component="datetime" aria-hidden="true" data-allow-time="No" data-version="v2">
         <label style="min-height:13px" >Date</label></span>
     </div>
 </li>
 
-<li><label> Cat's Name<span class="form-required">*</span> </label>
-    <div class="form-group" data-layout="half"> <input type="text" name="catName" class="form-control" data-type="input-textbox" data-defaultvalue="" style="width:310px" size="310" value="" data-component="textbox" aria-labelledby="label_5" required=""> </div>
+<li><label for="name">Cat's Name<span class="form-required">*</span> </label>
+    <div class="form-group" data-layout="half"> <input type="text" name="catName" id="name" class="form-control" data-type="input-textbox" data-defaultvalue="" style="width:310px" size="310" value="" data-component="textbox" aria-labelledby="label_5" required=""> </div>
 </li>
+'
 
-
-<li><label>Sex<span class="form-required">*</span> </label>
-    <div class="form-group">
-        <div><span><input type="radio" name="catSex" class="form-control" value="Female" required=""><label>Female</label></span><span><input type="radio" value="Male" required="" class="form-control"><label> Male</label></span></div>
+<li><label>Sex<span class="form-required">*</span></label>
+    <div class="form-check">
+        <input type="radio" name="catSex" class="form-check-input" id="s1" value="Female" checked>
+        <label class="form-check-label" for="s1">Female</label>
+        </div>
+    <div class="form-check">
+        <input type="radio" name="catSex" value="Male" class="form-check-input" id="s2" checked>
+        <label class="form-check-label" for="s2">Male</label>
     </div>
 </li>
 
 
-<li><label> Spayed / Neutered?<span class="form-required">*</span> </label>
-    <div class="form-group">
-        <div><span><label>Yes</label></span><span style="clear:left"><span></span><input type="radio" name="catFixed" class="form-control" value="No" required=""><label> No</label></span><span style="clear:left"><span></span><input type="radio" class="form-control" value="Unknown" required=""><label> Unknown</label></span></div>
+<li><label>Spayed / Neutered?<span class="form-required">*</span> </label>
+    <div class="form-check">
+        <div><input type="radio" name="catFixed" id="sn1" class="form-check-input" value="Yes" required="" checked>
+            <label for="sn1">Yes</label></div>
+        <div>
+            <input type="radio" name="catFixed" class="form-check-input" id="sn2" value="No" required="" checked>
+            <label for="sn2">No</label></div>
+        <div>
+            <input type="radio" name="catFixed" class="form-check-input" id="sn3" value="Unknown" required="" checked>
+            <label for="sn3">Unknown</label>
+        </div>
     </div>
 </li>
 
@@ -52,9 +65,22 @@
 </li>
 
 
-<li class="form-group"><label> Breed<span>*</span> </label>
-    <div data-layout="full">
-        <div><span style="clear:left"><span></span><input type="radio" name="catBreed" class="form-control"  value="Domestic Short Hair" required=""><label> Domestic Short Hair</label></span><span style="clear:left"><input type="radio" class="form-control" value="Domestic Medium Hair" required=""><label> Domestic Medium Hair</label></span><span class="form-radio-item" style="clear:left"><span class="dragger-item"></span><input type="radio" class="form-control" value="Domestic Long Hair" required=""><label> Domestic Long Hair</label></span><span class="form-radio-item formRadioOther" style="clear:left"><input type="radio" value="other" tabindex="0" class="form-control"><label style="text-indent:0"> Other</label><span class="other-input-container is-none" style=""><input type="text" class="form-control" data-otherhint="Other" size="15" data-placeholder="Please type another option here" placeholder="Please type another option here"></span></span></div>
+<li><label> Breed<span>*</span> </label>
+    <div class="form-check">
+    <div>
+        <input type="radio" name="catBreed" class="form-check-input" id="b1" value="Domestic Short Hair" required="">
+        <label for="b1">Domestic Short Hair</label>
+    </div><div>
+        <input type="radio" class="form-check-input" name="catBreed" id="b2" value="Domestic Medium Hair" required="">
+        <label for="b2"> Domestic Medium Hair</label>
+    </div><div>
+        <input type="radio" class="form-check-input" name="catBreed" id="b3" value="Domestic Long Hair" required="">
+        <label for="b3"> Domestic Long Hair</label>
+    </div><div>
+        <input type="radio" value="other" tabindex="0" class="form-check-input" name="catBreed" id="b4">
+        <label style="text-indent:0" for="b4"> Other</label>
+        </div>
+        <input type="text" class="form-control" name="catBreed" data-otherhint="Other" style="width:310px" size="15" data-placeholder="Please type another option here" placeholder="Please type another option here">
     </div>
 </li>
 
@@ -64,23 +90,46 @@
 </li>
 
 
-<li class="form-group"><label> Ears<span>*</span> </label>
+<li class="form-check"><label> Ears<span>*</span> </label>
     <div data-layout="full">
-        <div data-columncount="2" role="group" data-component="radio"><span><input type="radio" name="catEars" class="form-control" value="Erect" required=""><label>Erect</label></span><span><input type="radio" class="form-control" value="Ear-Tipped" required=""><label>Ear-Tipped</label></span><span class="form-radio-item" style="clear:left"><input type="radio" class="form-control" value="Drooping / Folded" required=""><label>Drooping / Folded</label></span><span class="form-radio-item"><input type="radio" class="form-control" value="Unknown" required=""><label>Unknown</label></span></div>
+        <div data-columncount="2" role="group" data-component="radio"><div>
+            <input type="radio" name="catEars" class="form-check-input" id="e1" value="Erect" required="" checked>
+            <label for="e1">Erect</label></div><div>
+            <input type="radio" name="catEars" class="form-check-input" id="e2" value="Ear-Tipped" required="" checked>
+            <label for="e2">Ear-Tipped</label></div><div>
+            <input type="radio" name="catEars" class="form-check-input" id="e3" value="Drooping / Folded" required="" checked>
+            <label for="e3">Drooping / Folded</label></div><div>
+            <input type="radio" name="catEars" class="form-check-input" id="e4" value="Unknown" required="" checked>
+            <label for="e4">Unknown</label></div>
+        </div>
     </div>
 </li>
 
 
-<li data-type="control_radio"><label class="form-label form-label-top form-label-auto" id="label_42"> Tail<span class="form-required">*</span> </label>
+<li class="form-check"><label>Tail<span class="form-required">*</span></label>
     <div data-layout="full">
-        <div role="group" aria-labelledby="label_42" data-component="radio"><span style="clear:left"><span></span><input type="radio" aria-describedby="label_42" value="Bobtail" required=""><label>Bobtail</label></span><span style="clear:left"><span></span><input type="radio" aria-describedby="label_42" value="Short" required=""><label>Short</label></span><span class="form-radio-item" style="clear:left"><span></span><input type="radio" aria-describedby="label_42" value="Long" required=""><label>Long</label></span></div>
-    </div>
+        <div>
+            <input type="radio" name="catTail" class="form-check-input" id="c1" aria-describedby="label_42" value="Bobtail" required="" checked>
+            <label for="c1">Bobtail</label></div><div>
+            <input type="radio" name="catTail" class="form-check-input" id="c2" aria-describedby="label_42" value="Short" required="" checked>
+            <label for="c2">Short</label></div><div>
+            <input type="radio" name="catTail" class="form-check-input" id="c3" aria-describedby="label_42" value="Long" required="" checked>
+            <label for="c3">Long</label></div>
+        </div>
 </li>
 
 
-<li data-type="control_radio"><label> Is your cat declawed?<span>*</span> </label>
+<li class="form-check"><label> Is your cat declawed?<span>*</span> </label>
     <div data-layout="full">
-        <div role="group" aria-labelledby="label_46" data-component="radio"><span style="clear:left"><span></span><input type="radio" aria-describedby="label_46" value="Yes - front declawed" required=""><label>Yes - front declawed</label></span><span class="form-radio-item" style="clear:left"><span></span><input type="radio" aria-describedby="label_46" value="Yes – front and back declawed" required=""><label>Yes – front and back declawed</label></span><span style="clear:left"><span></span><input type="radio" aria-describedby="label_46" value="No" required=""><label>No</label></span><span class="form-radio-item" style="clear:left"><span class="dragger-item"></span><input type="radio" aria-describedby="label_46" value="Unknown" required=""><label>Unknown</label></span></div>
+        <div>
+            <input type="radio" name="catClaw" class="form-check-input" id="claw1" aria-describedby="label_46" value="Yes - front declawed" required="" checked>
+            <label for="claw1">Yes - front declawed</label></div><div>
+            <input type="radio" name="catClaw" class="form-check-input" id="claw2" aria-describedby="label_46" value="Yes – front and back declawed" required="" checked>
+            <label for="claw2">Yes – front and back declawed</label></div><div>
+            <input type="radio" name="catClaw" class="form-check-input" id="claw3" aria-describedby="label_46" value="No" required="" checked>
+            <label for="claw3">No</label></div><div>
+            <input type="radio" name="catClaw" class="form-check-input" id="claw4" aria-describedby="label_46" value="Unknown" required="" checked>
+            <label for="claw4">Unknown</label></div>
     </div>
 </li>
 
@@ -94,16 +143,28 @@
 </li>
 
 
-<li class="form-group"><label> Was your cat wearing a collar or harness?<span>*</span> </label>
-    <div data-layout="full">
-        <div role="group" data-component="radio"><span style="clear:left"><span></span><input type="radio" name="catCollar" class="form-control" value="Yes" required=""><label>Yes</label></span><span style="clear:left"><span></span><input type="radio" class="form-control" value="No" required=""><label>No</label></span><span style="clear:left"><span></span><input type="radio" class="form-control" value="Unknown" required=""><label>Unknown</label></span></div>
+<li><label> Was your cat wearing a collar or harness?<span>*</span> </label>
+    <div class="form-check">
+        <div>
+            <input type="radio" name="catCollar" class="form-check-input" id="collar1" value="Yes" required="" >
+            <label for="collar1">Yes</label></div><div>
+            <input type="radio" name="catCollar" class="form-check-input" id="collar2" value="No" required="" >
+            <label for="collar2">No</label></div><div>
+            <input type="radio" name="catCollar" class="form-check-input" id="collar3" value="Unknown" required="" >
+            <label for="collar3">Unknown</label></div>
     </div>
 </li>
 
 
-<li class="form-group"><label> Is your cat microchipped?<span>*</span> </label>
-    <div>
-        <div role="group" data-component="radio"><span style="clear:left"><span></span><input type="radio" name="catChip" class="form-control" value="Yes" required=""><label>Yes</label></span><span style="clear:left"><span></span><input type="radio" class="form-control" value="No" required=""><label>No</label></span><span style="clear:left"><span></span><input type="radio" class="form-control" value="Unknown" required=""><label>Unknown</label></span></div>
+<li><label>Is your cat microchipped?<span>*</span> </label>
+    <div class="form-check">
+        <div>
+            <input type="radio" name="catChip" id="chip1" class="form-check-input" value="Yes" required="" >
+            <label for="chip1">Yes</label></div><div>
+            <input type="radio" name="catChip" id="chip2" class="form-check-input"  value="No" required="" >
+            <label for="chip2">No</label></div><div>
+            <input type="radio" name="catChip" id="chip3" class="form-check-input" value="Unknown" required="" >
+            <label for="chip3">Unknown</label></div>
     </div>
 </li>
 

@@ -16,7 +16,6 @@ public class User extends AbstractEntity {
 
 
 
-
     private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
 

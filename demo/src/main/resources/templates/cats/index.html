@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org/" xmlns="http://www.w3.org/1999/html">
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head>
     <nav th:replace="fragments :: head"></nav>
 </head>
@@ -21,15 +21,35 @@
         <th>Sex</th>
         <th>Fixed</th>
         <th>Breed</th>
+        <th>Color</th>
+        <th>Ears</th>
+        <th>Tail</th>
+        <th>Claws</th>
+        <th>Location</th>
+        <th>Zip Code</th>
+        <th>Collar</th>
+        <th>Chipped</th>
+        <th>Description</th>
+        <th>Pic</th>
 
     </tr>
     </thead>
   <tr th:each="cat : ${cats}">
-    <td th:text="${cat.catName}"></td>
-     <td th:text="${cat.catAge}"></td>
+      <td th:text="${cat.catName}"></td>
+      <td th:text="${cat.catAge}"></td>
       <td th:text="${cat.catDate}"></td>
       <td th:text="${cat.catSex}"></td>
       <td th:text="${cat.catBreed}"></td>
+      <td th:text="${cat.catColor}"></td>
+      <td th:text="${cat.catEars}"></td>
+      <td th:text="${cat.catTail}"></td>
+      <td th:text="${cat.catClaw}"></td>
+      <td th:text="${cat.catLocation}"></td>
+      <td th:text="${cat.catLost}"></td>
+      <td th:text="${cat.catCollar}"></td>
+      <td th:text="${cat.catChip}"></td>
+      <td th:text="${cat.catDescription}"></td>
+      <td th:text="${cat.catPic}"></td>
   </tr>
 </table>
 <p th:unless="${cats} and ${cats.size()}">No Cats!</p>

@@ -43,13 +43,14 @@ public class CatController {
                             @RequestParam String catBreed,
                             @RequestParam String catColor,
                             @RequestParam String catEars,
+                            @RequestParam String catTail,
                             @RequestParam String catLocation,
                             @RequestParam String catLost,
                             @RequestParam String catCollar,
                             @RequestParam String catChip,
                             @RequestParam String catDescription,
                             @RequestParam String catPic){
-        cats.add(new Cat(catName, catDate, catSex,catFixed,catAge,catBreed,catColor,catEars,catLocation,catLost,catCollar,catChip,catDescription,catPic));
+        cats.add(new Cat(catName, catDate, catSex, catFixed, catAge, catBreed, catColor, catEars, catTail, catLocation, catLost, catCollar, catChip, catDescription, catPic));
         return "redirect:";
     };
 }
