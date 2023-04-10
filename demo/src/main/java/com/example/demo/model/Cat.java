@@ -7,37 +7,37 @@ public class Cat extends AbstractEntity {
 
     @NotBlank
     @Size(min = 3, max = 20, message = "Name must be between 3 and 20 characters")
-    String catName;
+    private String catName;
 
-    String catDate;
+    private String catDate;
 
-    String catSex;
+    private String catSex;
 
-    String catFixed;
+    private String catFixed;
 
-    String catAge;
+    private String catAge;
 
-    String catBreed;
+    private String catBreed;
 
-    String catColor;
+    private String catColor;
 
-    String catEars;
+    private String catEars;
 
-    String catTail;
+    private String catTail;
 
-    String catClaw;
+    private String catClaw;
 
-    String catLocation;
+    private String catLocation;
 
-    String catLost;
+    private String catLost;
 
-    String catCollar;
+    private String catCollar;
 
-    String catChip;
+    private String catChip;
 
-    String catDescription;
+    private String catDescription;
 
-    String catPic;
+    private String catPic;
 
 
 

@@ -2,7 +2,6 @@ package com.example.demo.controllers;
 
 
 import com.example.demo.model.Cat;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,7 +17,7 @@ import java.util.List;
 @RequestMapping("cats")
 public class CatController {
 
-    private static List<Cat> cats = new ArrayList<>();
+    private final static List<Cat> cats = new ArrayList<>();
 
 
     @GetMapping
@@ -52,5 +51,5 @@ public class CatController {
                             @RequestParam String catPic){
         cats.add(new Cat(catName, catDate, catSex, catFixed, catAge, catBreed, catColor, catEars, catTail, catLocation, catLost, catCollar, catChip, catDescription, catPic));
         return "redirect:";
-    };
+    }
 }

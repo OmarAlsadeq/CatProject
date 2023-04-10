@@ -35,21 +35,21 @@
     </tr>
     </thead>
   <tr th:each="cat : ${cats}">
-      <td th:text="${cat.catName}"></td>
-      <td th:text="${cat.catAge}"></td>
-      <td th:text="${cat.catDate}"></td>
-      <td th:text="${cat.catSex}"></td>
-      <td th:text="${cat.catBreed}"></td>
-      <td th:text="${cat.catColor}"></td>
-      <td th:text="${cat.catEars}"></td>
-      <td th:text="${cat.catTail}"></td>
-      <td th:text="${cat.catClaw}"></td>
-      <td th:text="${cat.catLocation}"></td>
-      <td th:text="${cat.catLost}"></td>
-      <td th:text="${cat.catCollar}"></td>
-      <td th:text="${cat.catChip}"></td>
-      <td th:text="${cat.catDescription}"></td>
-      <td th:text="${cat.catPic}"></td>
+      <td th:text="${cat.name}"></td>
+      <td th:text="${cat.age}"></td>
+      <td th:text="${cat.date}"></td>
+      <td th:text="${cat.sex}"></td>
+      <td th:text="${cat.breed}"></td>
+      <td th:text="${cat.color}"></td>
+      <td th:text="${cat.ears}"></td>
+      <td th:text="${cat.tail}"></td>
+      <td th:text="${cat.claw}"></td>
+      <td th:text="${cat.location}"></td>
+      <td th:text="${cat.lost}"></td>
+      <td th:text="${cat.collar}"></td>
+      <td th:text="${cat.chip}"></td>
+      <td th:text="${cat.description}"></td>
+      <td th:text="${cat.picture}"></td>
   </tr>
 </table>
 <p th:unless="${cats} and ${cats.size()}">No Cats!</p>
