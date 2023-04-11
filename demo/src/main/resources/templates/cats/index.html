@@ -8,10 +8,11 @@
 
 <nav th:replace="fragments :: navigation"></nav>
 
-<table class="table table-bordered">
+<table class="table table-striped">
     <thead>
     <tr>
         <!-- <th>Date Last Seen</th>-->
+        <th>ID</th>
         <th>Name</th>
         <th>Sex</th>
         <th>Fixed</th>
@@ -32,6 +33,7 @@
     </thead>
   <tr th:each="cat : ${cats}">
       <!-- <td th:text="${cat.catDate}"></td>-->
+      <td th:text="${cat.id}"></td>
       <td th:text="${cat.catName}"></td>
       <td th:text="${cat.catAge}"></td>
       <td th:text="${cat.catSex}"></td>
@@ -49,7 +51,7 @@
   <!--    <td th:text="${cat.catPic}"></td>-->
   </tr>
 </table>
-<p th:unless="${cats} and ${cats.size()}">No Cats!</p>
+<p th:unless="${cats} and ${cats.size()}">No Cats Saved, You Suck!</p>
 
 </body>
 </html>
