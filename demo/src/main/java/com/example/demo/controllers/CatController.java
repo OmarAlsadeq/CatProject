@@ -35,7 +35,7 @@ public class CatController {
 
     @PostMapping("create")
     public String CreateCat(@RequestParam String catName,
-                            @RequestParam String catDate,
+                            /*@RequestParam String catDate,*/
                             @RequestParam String catSex,
                             @RequestParam String catFixed,
                             @RequestParam String catAge,
@@ -43,13 +43,14 @@ public class CatController {
                             @RequestParam String catColor,
                             @RequestParam String catEars,
                             @RequestParam String catTail,
+                            @RequestParam String catClaw,
                             @RequestParam String catLocation,
                             @RequestParam String catLost,
                             @RequestParam String catCollar,
                             @RequestParam String catChip,
-                            @RequestParam String catDescription,
-                            @RequestParam String catPic){
-        cats.add(new Cat(catName, catDate, catSex, catFixed, catAge, catBreed, catColor, catEars, catTail, catLocation, catLost, catCollar, catChip, catDescription, catPic));
+                            @RequestParam String catDescription
+                           /* @RequestParam String catPic*/){
+        cats.add(new Cat(catName,/*, catDate, */catSex, catFixed, catAge, catBreed, catColor, catEars, catTail, catClaw, catLocation, catLost, catCollar, catChip, catDescription/*, catPic*/));
         return "redirect:";
     }
 }

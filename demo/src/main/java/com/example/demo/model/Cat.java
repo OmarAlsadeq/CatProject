@@ -9,13 +9,13 @@ public class Cat extends AbstractEntity {
     @Size(min = 3, max = 20, message = "Name must be between 3 and 20 characters")
     private String catName;
 
-    private String catDate;
+    private String catAge;
+
+   /* private String catDate;*/
 
     private String catSex;
 
     private String catFixed;
-
-    private String catAge;
 
     private String catBreed;
 
@@ -37,13 +37,13 @@ public class Cat extends AbstractEntity {
 
     private String catDescription;
 
-    private String catPic;
+  /*  private String catPic;
+*/
 
 
-
-    public Cat(String catName, String catDate, String catSex, String catFixed, String catAge, String catBreed, String catColor, String catEars, String catTail, String catClaw, String catLocation, String catLost, String catCollar, String catChip, String catDescription, String catPic) {
+    public Cat(String catName,  String catAge,/* String catDate,*/ String catSex, String catFixed, String catBreed, String catColor, String catEars, String catTail, String catClaw, String catLocation, String catLost, String catCollar, String catChip, String catDescription/*, String catPic*/) {
         this.catName=catName;
-        this.catDate=catDate;
+        /*this.catDate=catDate;*/
         this.catSex=catSex;
         this.catFixed=catFixed;
         this.catAge=catAge;
@@ -57,11 +57,7 @@ public class Cat extends AbstractEntity {
         this.catCollar=catCollar;
         this.catChip=catChip;
         this.catDescription=catDescription;
-        this.catPic=catPic;
-    }
-
-    public Cat(String catName, String catDate, String catSex, String catFixed, String catAge, String catBreed, String catColor, String catEars, String catTail, String catLocation, String catLost, String catCollar, String catChip, String catDescription, String catPic) {
-        super();
+      /*  this.catPic=catPic;*/
     }
 
     public String getCatName() {
@@ -71,14 +67,14 @@ public class Cat extends AbstractEntity {
     public void setCatName(String catName) {
         this.catName = catName;
     }
-
+/*
     public String getCatDate() {
         return catDate;
     }
 
     public void setCatDate(String catDate) {
         this.catDate = catDate;
-    }
+    }*/
 
     public String getCatSex() {
         return catSex;
@@ -183,7 +179,7 @@ public class Cat extends AbstractEntity {
     public void setCatDescription(String catDescription) {
         this.catDescription = catDescription;
     }
-
+/*
     public String getCatPic() {
         return catPic;
     }
@@ -191,7 +187,7 @@ public class Cat extends AbstractEntity {
     public void setCatPic(String catPic) {
         this.catPic = catPic;
     }
-
+*/
     @Override
     public String toString(){
         return catName;

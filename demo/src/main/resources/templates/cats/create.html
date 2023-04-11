@@ -13,7 +13,7 @@
 <form method="post">
 
 
-
+<!--
     <div class="form-group">
     <div style="display:none">
         <label> Date Cat Was Last Seen:<span class="form-required">*</span> </label>
@@ -27,15 +27,19 @@
         <img class=" newDefaultTheme-dateIcon icon-liteMode" alt="Pick a Date" id="input_3_pick" src="https://cdn.jotfor.ms/images/calendar.png" data-component="datetime" aria-hidden="true" data-allow-time="No" data-version="v2">
         <label style="min-height:13px" >Date</label></span>
     </div>
-
+-->
     <div class="form-group">
  <li><label for="name">Cat's Name<span class="form-required">*</span> </label>
     <input type="text" name="catName" id="name" class="form-control" data-type="input-textbox" data-defaultvalue="" style="width:310px" size="310" value="" data-component="textbox" aria-labelledby="label_5" required="">
     </li>
     </div>
 
+    <div class="form-group">
+        <li><label> Age<span>*</span> </label>
+            <input type="text" name="catAge" class="form-control" data-type="input-textbox"  data-defaultvalue="" style="width:310px" size="310" value="" data-component="textbox" required=""><label>Example: 1 year</label></span>
+        </li>
+    </div>
 '
-
     <div class="form-check">
 <li><label>Sex<span class="form-required">*</span></label>
     <div>
@@ -65,12 +69,6 @@
     </div>
 
 
-    <div class="form-group">
-<li><label> Age<span>*</span> </label>
-        <input type="text" name="catAge" class="form-control" data-type="input-textbox"  data-defaultvalue="" style="width:310px" size="310" value="" data-component="textbox" required=""><label>Example: 1 year</label></span>
-</li>
-    </div>
-
 
     <div class="form-check">
 <li><label> Breed<span>*</span> </label>
@@ -93,7 +91,7 @@
 
 
     <div class="form-group">
-<li><label> Color<span>*</span> </label>
+<li><label>Color<span>*</span> </label>
         <input type="text" name="catColor" class="form-control" data-type="input-textbox" data-defaultvalue="" style="width:310px" size="310" value="" data-component="textbox" required="">
 </li>
     </div>
@@ -189,11 +187,11 @@
         <textarea style="width:648px;height:163px" name="catDescription" data-component="textarea" required="" aria-labelledby="label_19" data-customhint="Type here..." customhinted="true" placeholder="Type here..." spellcheck="false"></textarea> </div>
   </div>
 </li>
-
+<!--
 <div class="form-group">
   <label for="exampleFormControlFile1">Upload Cat Picture</label>
   <input type="file" name="catPic" class="form-control-file" id="exampleFormControlFile1">
-</div>
+</div>-->
 <div class="form-group">
     <input type="submit" value="Create Cat" class="btn btn-success">
 </div>

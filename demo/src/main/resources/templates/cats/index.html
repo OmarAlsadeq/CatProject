@@ -6,20 +6,16 @@
 <body class="container">
 <h2 class="headers"> All Cats</h2>
 
-<nav>
-    <ul>
-        <a href="cats/create">Create Cat</a>
-    </ul>
-</nav>
+<nav th:replace="fragments :: navigation"></nav>
 
 <table class="table table-bordered">
     <thead>
     <tr>
+        <!-- <th>Date Last Seen</th>-->
         <th>Name</th>
-        <th>Age</th>
-        <th>Date Last Seen</th>
         <th>Sex</th>
         <th>Fixed</th>
+        <th>Age</th>
         <th>Breed</th>
         <th>Color</th>
         <th>Ears</th>
@@ -30,15 +26,16 @@
         <th>Collar</th>
         <th>Chipped</th>
         <th>Description</th>
-        <th>Pic</th>
+     <!--   <th>Pic</th>-->
 
     </tr>
     </thead>
   <tr th:each="cat : ${cats}">
+      <!-- <td th:text="${cat.catDate}"></td>-->
       <td th:text="${cat.catName}"></td>
       <td th:text="${cat.catAge}"></td>
-      <td th:text="${cat.catDate}"></td>
       <td th:text="${cat.catSex}"></td>
+      <td th:text="${cat.catFixed}"></td>
       <td th:text="${cat.catBreed}"></td>
       <td th:text="${cat.catColor}"></td>
       <td th:text="${cat.catEars}"></td>
@@ -49,7 +46,7 @@
       <td th:text="${cat.catCollar}"></td>
       <td th:text="${cat.catChip}"></td>
       <td th:text="${cat.catDescription}"></td>
-      <td th:text="${cat.catPic}"></td>
+  <!--    <td th:text="${cat.catPic}"></td>-->
   </tr>
 </table>
 <p th:unless="${cats} and ${cats.size()}">No Cats!</p>
