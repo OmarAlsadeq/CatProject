@@ -1,6 +1,7 @@
 package com.example.demo.controllers;
 
 
+import com.example.demo.data.CatData;
 import com.example.demo.model.Cat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,13 +18,11 @@ import java.util.List;
 @RequestMapping("cats")
 public class CatController {
 
-    private final static List<Cat> cats = new ArrayList<>();
-
 
     @GetMapping
     public String displayAllCats(Model model){
         model.addAttribute("title","All Cats");
-        model.addAttribute("cats", cats);
+        model.addAttribute("cats", CatData.getAll());
         return "cats/index";
     }
 
@@ -50,7 +49,24 @@ public class CatController {
                             @RequestParam String catChip,
                             @RequestParam String catDescription
                            /* @RequestParam String catPic*/){
-        cats.add(new Cat(catName,/*, catDate, */catSex, catFixed, catAge, catBreed, catColor, catEars, catTail, catClaw, catLocation, catLost, catCollar, catChip, catDescription/*, catPic*/));
+        CatData.add(new Cat(catName,/*, catDate, */catSex, catFixed, catAge, catBreed, catColor, catEars, catTail, catClaw, catLocation, catLost, catCollar, catChip, catDescription/*, catPic*/));
+        return "redirect:";
+    }
+
+    @GetMapping("delete")
+    public String displayDeleteCatForm(Model model){
+        model.addAttribute("title", "Delete Cats");
+        model.addAttribute("cats", CatData.getAll());
+        return "cats/delete";
+    }
+
+    @PostMapping("delete")
+    public String processDeleteCatForm(@RequestParam(required = false) int[] catIds){
+        if(catIds != null) {
+            for (int id : catIds) {
+                CatData.remove(id);
+            }
+        }
         return "redirect:";
     }
 }
