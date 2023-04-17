@@ -3,12 +3,14 @@ package com.example.demo.model;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
+import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
 @MappedSuperclass
 public class AbstractEntity {
     @Id
     @GeneratedValue
+    @NotNull
     private int id;
     private static int nextId = 1;
 

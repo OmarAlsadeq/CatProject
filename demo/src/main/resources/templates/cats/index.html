@@ -6,17 +6,20 @@
 <body class="container">
 <h2 class="headers"> All Cats</h2>
 
-<nav th:replace="fragments :: navigation"></nav>
+<nav th:replace="fragments :: navigation">
+    <a th:href="@{/cats/edit/{id}{id=${cat.id}}}">Edit</a>
+</nav>
 
 <table class="table table-striped">
     <thead>
     <tr>
         <!-- <th>Date Last Seen</th>-->
+
         <th>ID</th>
         <th>Name</th>
+        <th>Age</th>
         <th>Sex</th>
         <th>Fixed</th>
-        <th>Age</th>
         <th>Breed</th>
         <th>Color</th>
         <th>Ears</th>

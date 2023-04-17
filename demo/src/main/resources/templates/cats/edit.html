@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <nav th:replace="fragments :: head"></nav>
+</head>
+<body class="container">
+
+<h1 class="headers">Cat Form</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+
+<form method="post"  th:action="@{/cats/edit}">
+    <input type="hidden" th:value="${cat.id}" name="catId" />
+    <!--
+        <div class="form-group">
+        <div style="display:none">
+            <label> Date Cat Was Last Seen:<span class="form-required">*</span> </label>
+                <input type="tel" class="form-control" name="catDate" size="2" data-maxlength="2" data-age="" maxlength="2" value="" required="" autocomplete="off" inputmode="numeric">
+                <label class="form-sub-label" style="min-height:13px" aria-hidden="false">Month</label>
+            <input type="tel" class="form-control" size="2" data-maxlength="2" data-age="" maxlength="2" value="" required="" autocomplete="off"  inputmode="numeric">
+            <label style="min-height:13px" aria-hidden="false">Day</label></span>
+                <input type="tel" class="form-control" size="4" data-maxlength="4" data-age="" maxlength="4" value="" required="" autocomplete="off">
+                <label style="min-height:13px" aria-hidden="false">Year</label></span></div>
+            <input type="text" class="form-control" size="12" data-maxlength="12" style="width:310px" data-age="" value="" required="" data-format="mmddyyyy" data-seperator="-" placeholder="MM-DD-YYYY" autocomplete="off" inputmode="numeric">
+            <img class=" newDefaultTheme-dateIcon icon-liteMode" alt="Pick a Date" id="input_3_pick" src="https://cdn.jotfor.ms/images/calendar.png" data-component="datetime" aria-hidden="true" data-allow-time="No" data-version="v2">
+            <label style="min-height:13px" >Date</label></span>
+        </div>
+    -->
+    <div class="form-group">
+        <li><label for="name">Cat's Name<span class="form-required">*</span> </label>
+            <input type="text" name="catName" id="name" class="form-control" data-type="input-textbox" data-defaultvalue="" style="width:310px" size="310" value="" data-component="textbox" aria-labelledby="label_5" required="">
+            <input type="hidden" th:value="${cat.catName}" name="catName">
+        </li>
+    </div>
+
+    <div class="form-group">
+        <li><label> Age<span>*</span> </label>
+            <input type="text" name="catAge" class="form-control" data-type="input-textbox"  data-defaultvalue="" style="width:310px" size="310" value="" data-component="textbox" required=""><label>Example: 1 year</label></span>
+        </li>
+    </div>
+    '
+    <div class="form-check">
+        <li><label>Sex<span class="form-required">*</span></label>
+            <div>
+                <input type="radio" name="catSex" class="form-check-input" id="s1" value="Female" checked>
+                <label class="form-check-label" for="s1">Female</label>
+            </div>
+            <div>
+                <input type="radio" name="catSex" value="Male" class="form-check-input" id="s2" checked>
+                <label class="form-check-label" for="s2">Male</label>
+            </div>
+        </li>
+    </div>
+
+
+    <div class="form-check">
+        <li><label>Spayed / Neutered?<span class="form-required">*</span> </label>
+            <div><input type="radio" name="catFixed" id="sn1" class="form-check-input" value="Yes" required="" checked>
+                <label for="sn1">Yes</label></div>
+            <div>
+                <input type="radio" name="catFixed" class="form-check-input" id="sn2" value="No" required="" checked>
+                <label for="sn2">No</label></div>
+            <div>
+                <input type="radio" name="catFixed" class="form-check-input" id="sn3" value="Unknown" required="" checked>
+                <label for="sn3">Unknown</label>
+            </div>
+        </li>
+    </div>
+
+
+
+    <div class="form-check">
+        <li><label> Breed<span>*</span> </label>
+            <div>
+                <input type="radio" name="catBreed" class="form-check-input" id="b1" value="Domestic Short Hair" required="">
+                <label for="b1">Domestic Short Hair</label>
+            </div><div>
+                <input type="radio" class="form-check-input" name="catBreed" id="b2" value="Domestic Medium Hair" required="">
+                <label for="b2"> Domestic Medium Hair</label>
+            </div><div>
+                <input type="radio" class="form-check-input" name="catBreed" id="b3" value="Domestic Long Hair" required="">
+                <label for="b3"> Domestic Long Hair</label>
+            </div><div>
+                <input type="radio" value="other" tabindex="0" class="form-check-input" name="catBreed" id="b4">
+                <label style="text-indent:0" for="b4"> Other</label>
+            </div>
+            <input type="text" class="form-control" name="catBreed" data-otherhint="Other" style="width:310px" size="15" data-placeholder="Please type another option here" placeholder="Please type another option here">
+        </li>
+    </div>
+
+
+    <div class="form-group">
+        <li><label>Color<span>*</span> </label>
+            <input type="text" name="catColor" class="form-control" data-type="input-textbox" data-defaultvalue="" style="width:310px" size="310" value="" data-component="textbox" required="">
+        </li>
+    </div>
+
+    <div class="form-check">
+        <li><label> Ears<span>*</span></label>
+            <div>
+                <input type="radio" name="catEars" class="form-check-input" id="e1" value="Erect" required="" checked>
+                <label for="e1">Erect</label></div><div>
+                <input type="radio" name="catEars" class="form-check-input" id="e2" value="Ear-Tipped" required="" checked>
+                <label for="e2">Ear-Tipped</label></div><div>
+                <input type="radio" name="catEars" class="form-check-input" id="e3" value="Drooping / Folded" required="" checked>
+                <label for="e3">Drooping / Folded</label></div><div>
+                <input type="radio" name="catEars" class="form-check-input" id="e4" value="Unknown" required="" checked>
+                <label for="e4">Unknown</label></div>
+        </li>
+    </div>
+
+
+
+    <div class="form-check">
+        <li><label>Tail<span class="form-required">*</span></label>
+            <div>
+                <input type="radio" name="catTail" class="form-check-input" id="c1" aria-describedby="label_42" value="Bobtail" required="" checked>
+                <label for="c1">Bobtail</label></div><div>
+                <input type="radio" name="catTail" class="form-check-input" id="c2" aria-describedby="label_42" value="Short" required="" checked>
+                <label for="c2">Short</label></div><div>
+                <input type="radio" name="catTail" class="form-check-input" id="c3" aria-describedby="label_42" value="Long" required="" checked>
+                <label for="c3">Long</label></div>
+        </li>
+    </div>
+
+    <div class="form-check">
+        <li><label> Is your cat declawed?<span>*</span> </label>
+            <div>
+                <input type="radio" name="catClaw" class="form-check-input" id="claw1" aria-describedby="label_46" value="Yes - front declawed" required="" checked>
+                <label for="claw1">Yes - front declawed</label></div><div>
+                <input type="radio" name="catClaw" class="form-check-input" id="claw2" aria-describedby="label_46" value="Yes – front and back declawed" required="" checked>
+                <label for="claw2">Yes – front and back declawed</label></div><div>
+                <input type="radio" name="catClaw" class="form-check-input" id="claw3" aria-describedby="label_46" value="No" required="" checked>
+                <label for="claw3">No</label></div><div>
+                <input type="radio" name="catClaw" class="form-check-input" id="claw4" aria-describedby="label_46" value="Unknown" required="" checked>
+                <label for="claw4">Unknown</label></div>
+        </li>
+    </div>
+
+
+    <li><label> Location Lost<span class="form-required">*</span> </label>
+        <div>
+        <span style="vertical-align:top">
+            <textarea name="catLocation" style="width:648px;height:80px" data-component="textarea" required="" aria-labelledby="label_10 sublabel_input_10" data-customhint="Type here..." customhinted="true" placeholder="Type here..." spellcheck="false"></textarea>
+            <label style="min-height:13px" aria-hidden="false">Address or cross streets</label></span>
+        </div>
+    </li>
+
+
+    <li><label> ZIP Code of Location Lost<span class="form-required">*</span></label>
+        <div data-type="control_textbox">
+            <input type="text" name="catLost" data-type="input-textbox" class="form-textbox validate[required]" data-defaultvalue="" style="width:310px" size="310" value="" data-component="textbox" aria-labelledby="label_30" required="">
+        </div>
+    </li>
+
+    <li><label> Was your cat wearing a collar or harness?<span>*</span> </label>
+        <div class="form-check">
+            <div>
+                <input type="radio" name="catCollar" class="form-check-input" id="collar1" value="Yes" required="" >
+                <label for="collar1">Yes</label></div><div>
+            <input type="radio" name="catCollar" class="form-check-input" id="collar2" value="No" required="" >
+            <label for="collar2">No</label></div><div>
+            <input type="radio" name="catCollar" class="form-check-input" id="collar3" value="Unknown" required="" >
+            <label for="collar3">Unknown</label></div>
+        </div>
+    </li>
+
+
+
+
+    <li><label>Is your cat microchipped?<span>*</span></label>
+        <div class="form-check">
+            <div>
+                <input type="radio" name="catChip" id="chip1" class="form-check-input" value="Yes" required="" >
+                <label for="chip1">Yes</label></div><div>
+            <input type="radio" name="catChip" id="chip2" class="form-check-input"  value="No" required="" >
+            <label for="chip2">No</label></div><div>
+            <input type="radio" name="catChip" id="chip3" class="form-check-input" value="Unknown" required="" >
+            <label for="chip3">Unknown</label></div>
+        </div>
+    </li>
+
+
+    <li><label> Describe Your Cat. The more information you can give us about your cat’s physical characteristics, the better! How will we be able to identify YOUR cat when it comes in the door?<span>*</span> </label>
+        <div class="form-group">
+            <textarea style="width:648px;height:163px" name="catDescription" data-component="textarea" required="" aria-labelledby="label_19" data-customhint="Type here..." customhinted="true" placeholder="Type here..." spellcheck="false"></textarea> </div>
+        </div>
+    </li>
+    <!--
+    <div class="form-group">
+      <label for="exampleFormControlFile1">Upload Cat Picture</label>
+      <input type="file" name="catPic" class="form-control-file" id="exampleFormControlFile1">
+    </div>-->
+    <div class="form-group">
+        <input type="submit" value="Update Cat" class="btn btn-success">
+    </div>
+</form>
+
+
+
+</body>
+</html>

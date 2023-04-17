@@ -1,13 +1,16 @@
 package com.example.demo.model;
 
+import javax.persistence.Entity;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
+@Entity
 public class Cat extends AbstractEntity {
 
     @NotBlank
     @Size(min = 3, max = 20, message = "Name must be between 3 and 20 characters")
     private String catName;
+
 
     private String catAge;
 
@@ -34,7 +37,7 @@ public class Cat extends AbstractEntity {
     private String catCollar;
 
     private String catChip;
-
+    @Size(max = 500, message = "Description too long. ")
     private String catDescription;
 
   /*  private String catPic;
@@ -59,6 +62,7 @@ public class Cat extends AbstractEntity {
         this.catDescription=catDescription;
       /*  this.catPic=catPic;*/
     }
+    public Cat() {};
 
     public String getCatName() {
         return catName;

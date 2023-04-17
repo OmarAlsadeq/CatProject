@@ -12,7 +12,6 @@
 
 <form method="post">
 
-
 <!--
     <div class="form-group">
     <div style="display:none">
@@ -30,13 +29,13 @@
 -->
     <div class="form-group">
  <li><label for="name">Cat's Name<span class="form-required">*</span> </label>
-    <input type="text" name="catName" id="name" class="form-control" data-type="input-textbox" data-defaultvalue="" style="width:310px" size="310" value="" data-component="textbox" aria-labelledby="label_5" required="">
+    <input th:field="${cat.catName}" id="name" class="form-control" data-type="input-textbox" data-defaultvalue="" style="width:310px" size="310" value="" data-component="textbox" aria-labelledby="label_5" required="">
     </li>
     </div>
 
     <div class="form-group">
         <li><label> Age<span>*</span> </label>
-            <input type="text" name="catAge" class="form-control" data-type="input-textbox"  data-defaultvalue="" style="width:310px" size="310" value="" data-component="textbox" required=""><label>Example: 1 year</label></span>
+            <input th:field="${cat.catAge}" class="form-control" data-type="input-textbox"  data-defaultvalue="" style="width:310px" size="310" value="" data-component="textbox" required=""><label>Example: 1 year</label></span>
         </li>
     </div>
 '
@@ -157,11 +156,11 @@
 <li><label> Was your cat wearing a collar or harness?<span>*</span> </label>
     <div class="form-check">
         <div>
-            <input type="radio" name="catCollar" class="form-check-input" id="collar1" value="Yes" required="" >
+            <input type="radio" name="catCollar" class="form-check-input" id="collar1" value="Yes" required=""  checked>
             <label for="collar1">Yes</label></div><div>
-            <input type="radio" name="catCollar" class="form-check-input" id="collar2" value="No" required="" >
+            <input type="radio" name="catCollar" class="form-check-input" id="collar2" value="No" required="" checked>
             <label for="collar2">No</label></div><div>
-            <input type="radio" name="catCollar" class="form-check-input" id="collar3" value="Unknown" required="" >
+            <input type="radio" name="catCollar" class="form-check-input" id="collar3" value="Unknown" required="" checked>
             <label for="collar3">Unknown</label></div>
     </div>
 </li>

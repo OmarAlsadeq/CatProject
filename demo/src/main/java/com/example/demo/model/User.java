@@ -3,6 +3,8 @@ package com.example.demo.model;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.persistence.Entity;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 
@@ -13,6 +15,9 @@ public class User extends AbstractEntity {
     private String username;
     @NotNull
     private String pwHash;
+    @NotBlank
+    @Email(message = "Invalid email. Try again.")
+    private String contactEmail;
 
 
 
@@ -22,6 +27,7 @@ public class User extends AbstractEntity {
     public User(String username, String password, String contactEmail) {
         this.username = username;
         this.pwHash = encoder.encode(password);
+        this.contactEmail = contactEmail;
     }
 
     public User(String username, String password) {
@@ -36,5 +42,11 @@ public class User extends AbstractEntity {
         return encoder.matches(password, pwHash);
     }
 
+    public String getContactEmail() {
+        return contactEmail;
+    }
 
+    public void setContactEmail(String contactEmail) {
+        this.contactEmail = contactEmail;
+    }
 }

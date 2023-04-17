@@ -1,12 +1,19 @@
 package com.example.demo.data;
 
 import com.example.demo.model.Cat;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
+@Service
 public class CatData {
+
+    @Autowired
+    private CatRepository catRepository;
+
     //place to put cats
     private static final Map<Integer, Cat> cats = new HashMap<>();
 
