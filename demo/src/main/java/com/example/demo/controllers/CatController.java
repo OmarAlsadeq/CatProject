@@ -24,7 +24,7 @@ public class CatController {
     @GetMapping
     public String displayAllCats(Model model){
         model.addAttribute("title","All Cats");
-        model.addAttribute("cats", catRepository.findAll());
+        model.addAttribute("cats", CatData.getAll());
         return "cats/index";
     }
 
@@ -43,14 +43,14 @@ public class CatController {
             return "cats/create";
         }
 
-        catRepository.save(newCat);
+        CatData.add(newCat);
         return "redirect:";
     }
 
     @GetMapping("delete")
     public String displayDeleteCatForm(Model model){
         model.addAttribute("title", "Delete Cats");
-        model.addAttribute("cats", catRepository.findAll());
+        model.addAttribute("cats", CatData.getAll());
         return "cats/delete";
     }
 
@@ -58,7 +58,7 @@ public class CatController {
     public String processDeleteCatForm(@RequestParam(required = false) int[] catIds){
         if(catIds != null) {
             for (int id : catIds) {
-                catRepository.deleteById(id);
+                CatData.remove(id);
             }
         }
         return "redirect:";

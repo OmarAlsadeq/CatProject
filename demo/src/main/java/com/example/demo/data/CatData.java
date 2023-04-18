@@ -8,11 +8,8 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-@Service
 public class CatData {
-
-    @Autowired
-    private CatRepository catRepository;
+    
 
     //place to put cats
     private static final Map<Integer, Cat> cats = new HashMap<>();

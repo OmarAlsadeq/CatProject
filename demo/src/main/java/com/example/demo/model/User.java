@@ -15,24 +15,22 @@ public class User extends AbstractEntity {
     private String username;
     @NotNull
     private String pwHash;
-    @NotBlank
-    @Email(message = "Invalid email. Try again.")
-    private String contactEmail;
+   // @NotBlank
+    //@Email(message = "Invalid email. Try again.")
+    //private String contactEmail;
 
 
 
     private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+    public User (){}
 
-
-    public User(String username, String password, String contactEmail) {
+    public User(String username, String password/*, String contactEmail*/) {
         this.username = username;
         this.pwHash = encoder.encode(password);
-        this.contactEmail = contactEmail;
+       // this.contactEmail = contactEmail;
     }
 
-    public User(String username, String password) {
-        super();
-    }
+
 
     public String getUsername() {
         return username;
@@ -42,11 +40,11 @@ public class User extends AbstractEntity {
         return encoder.matches(password, pwHash);
     }
 
-    public String getContactEmail() {
+    /*public String getContactEmail() {
         return contactEmail;
     }
 
     public void setContactEmail(String contactEmail) {
         this.contactEmail = contactEmail;
-    }
+    }*/
 }
