@@ -11,27 +11,18 @@
 
 
 <form method="post"  th:action="@{/cats/edit}">
-    <!--
-        <div class="form-group">
-        <div style="display:none">
-            <label> Date Cat Was Last Seen:<span class="form-required">*</span> </label>
-                <input type="tel" class="form-control" name="catDate" size="2" data-maxlength="2" data-age="" maxlength="2" value="" required="" autocomplete="off" inputmode="numeric">
-                <label class="form-sub-label" style="min-height:13px" aria-hidden="false">Month</label>
-            <input type="tel" class="form-control" size="2" data-maxlength="2" data-age="" maxlength="2" value="" required="" autocomplete="off"  inputmode="numeric">
-            <label style="min-height:13px" aria-hidden="false">Day</label></span>
-                <input type="tel" class="form-control" size="4" data-maxlength="4" data-age="" maxlength="4" value="" required="" autocomplete="off">
-                <label style="min-height:13px" aria-hidden="false">Year</label></span></div>
-            <input type="text" class="form-control" size="12" data-maxlength="12" style="width:310px" data-age="" value="" required="" data-format="mmddyyyy" data-seperator="-" placeholder="MM-DD-YYYY" autocomplete="off" inputmode="numeric">
-            <img class=" newDefaultTheme-dateIcon icon-liteMode" alt="Pick a Date" id="input_3_pick" src="https://cdn.jotfor.ms/images/calendar.png" data-component="datetime" aria-hidden="true" data-allow-time="No" data-version="v2">
-            <label style="min-height:13px" >Date</label></span>
-        </div>
-    -->
+
     <div class="form-group">
         <input type="hidden" th:value="${cat.id}" name="catId" />
         <li><label for="name">Cat's Name<span class="form-required">*</span> </label>
             <input type="text" name="catName" id="name" class="form-control" data-type="input-textbox" data-defaultvalue="" style="width:310px" size="310" th:value="${cat.catName}" data-component="textbox" aria-labelledby="label_5" required="">
             <input type="hidden" th:value="${cat.catName}" name="catName">
         </li>
+    </div>
+
+    <div class="form-group">
+        <label>Date Cat Was Last Seen:<span class="form-required">*</span></label>
+        <input type="date" class="form-control" name="catDate" th:value="${cat.catDate}">
     </div>
 
     <div class="form-group">

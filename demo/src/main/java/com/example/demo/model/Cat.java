@@ -14,7 +14,7 @@ public class Cat extends AbstractEntity {
 
     private String catAge;
 
-   /* private String catDate;*/
+    private String catDate;
 
     private String catSex;
 
@@ -71,14 +71,14 @@ public class Cat extends AbstractEntity {
     public void setCatName(String catName) {
         this.catName = catName;
     }
-/*
+
     public String getCatDate() {
         return catDate;
     }
 
     public void setCatDate(String catDate) {
         this.catDate = catDate;
-    }*/
+    }
 
     public String getCatSex() {
         return catSex;
