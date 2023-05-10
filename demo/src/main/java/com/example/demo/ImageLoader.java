@@ -11,7 +11,7 @@ public class ImageLoader extends JPanel {
 
     public ImageLoader(String fileName){
         try{
-            image= ImageIO.read(new File(fileName));
+            image= ImageIO.read(new File("/catImages/salem_Cat.jpg"));
         } catch (IOException e){
             e.printStackTrace();
         }

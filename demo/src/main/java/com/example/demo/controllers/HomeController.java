@@ -13,4 +13,6 @@ public class HomeController {
         return "index";
     }
 
+    @GetMapping("tnr")
+    public String tnr() {return "tnr";}
 }

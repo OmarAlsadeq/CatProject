@@ -89,4 +89,8 @@ public class CatController {
         catToEdit.setCatDescription(catDescription);
         return "redirect:";
     }
+    @GetMapping("tnr")
+    public String showTNRPage(){
+        return "cats/tnr";
+    }
 }
