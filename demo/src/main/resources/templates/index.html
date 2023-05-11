@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org/" class="p-3 mb-2 bg-info text-dark">
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head>
     <nav th:replace="fragments :: head"></nav>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
@@ -9,25 +9,27 @@
     </header>
 </head>
 <body class="container-fluid">
-
-<div class="center-text">
-    <h5>Welcome to Rescue Meow, my cat rescue website! We are dedicated to helping cats in need find loving homes
-        and providing them with the care they deserve. Our team is committed to making a difference in the lives of these furry friends,
-        and we believe that every cat deserves a chance at a happy and healthy life. We hope that you will join us in our mission to save
-        and protect cats, and that you will find the perfect addition to your family through rescue efforts.</h5>
-</div>
 <hr>
-
+<div class="container text-center">
+    <div class="row row-cols-1 row-cols-sm-2">
+        <div class="col">
 <div class="scroll-container">
     <img th:src="@{/catimages/salem_Cat.jpg}"  width="600px" height="400px" alt="kitten1">
     <img th:src="@{/catimages/kitties1.jpg}"  width="600px" height="400px" alt="kitten3">
     <img th:src="@{/catimages/kitties2.jpg}"  width="600px" height="400px" alt="kitten4">
     <img th:src="@{/catimages/Mimi1.jpg}"  width="500px" height="400px" alt="kitten5">
 </div>
+</div>
+        <div class="col">
+            <div class="container-md">
+                <h4>Welcome to Rescue Meow, my cat rescue website! We are dedicated to helping cats in need find loving homes
+                    and providing them with the care they deserve. Our team is committed to making a difference in the lives of these furry friends,
+                    and we believe that every cat deserves a chance at a happy and healthy life. We hope that you will join us in our mission to save
+                    and protect cats, and that you will find the perfect addition to your family through rescue efforts.</h4>
+        </div>
+ </div>
+</div>
 <br>
-
-
-
 
 <div id="map"></div>
 
