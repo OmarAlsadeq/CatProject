@@ -6,10 +6,9 @@
 <body class="container">
 <h2 class="headers"> All Cats</h2>
 
-<nav th:replace="fragments :: navigation">
-    <a th:href="@{/cats/edit/{id}{id=${cat.id}}}">Edit</a>
+<nav th:replace="fragments :: catButtons">
 </nav>
-
+<a th:href="@{/cats/edit/{id}{id=${cat.id}}}">Edit</a>
 <table class="table table-striped">
     <thead>
     <tr>
