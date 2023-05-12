@@ -9,5 +9,5 @@ import java.util.Map;
 
 @Repository
 public interface CatRepository extends CrudRepository<Cat, Integer> {
-    //Cat findById(int id);
+    Cat findById(int id);
 }

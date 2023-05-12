@@ -24,7 +24,7 @@ public class CatController {
     @GetMapping
     public String displayAllCats(Model model){
         model.addAttribute("title","All Cats");
-        model.addAttribute("cats", CatData.getAll());
+        model.addAttribute("cats", catRepository.findAll());
         return "cats/index";
     }
 
@@ -43,14 +43,14 @@ public class CatController {
             return "cats/create";
         }
 
-        CatData.add(newCat);
+        catRepository.save(newCat);
         return "redirect:";
     }
 
     @GetMapping("delete")
     public String displayDeleteCatForm(Model model){
         model.addAttribute("title", "Delete Cats");
-        model.addAttribute("cats", CatData.getAll());
+        model.addAttribute("cats", catRepository.findAll());
         return "cats/delete";
     }
 
@@ -58,22 +58,22 @@ public class CatController {
     public String processDeleteCatForm(@RequestParam(required = false) int[] catIds){
         if(catIds != null) {
             for (int id : catIds) {
-                CatData.remove(id);
+                catRepository.deleteById(id);
             }
         }
         return "redirect:";
-    }
+    }/*
     @GetMapping("edit/{id}")
     public String displayEditForm(Model model, @PathVariable int id) {
-        Cat catToEdit = CatData.getById(id);
+        Cat catToEdit = catRepository.findById(id);
         model.addAttribute("cat", catToEdit);
         String title = "Edit Cat " + catToEdit.getCatName() + "(id= " + catToEdit.getId() + ")";
         model.addAttribute("title", title);
         return "cats/edit";
     }
-    @PostMapping("edit")
-    public String processEditForm(int catId, String catName, String catAge, String catSex, String catFixed, String catBreed, String catColor, String catEars, String catTail, String catClaw, String catLocation, String catLost, String catChip, String catDescription) {
-        Cat catToEdit = CatData.getById(catId);
+    @PostMapping("edit/{id}")
+    public String processEditForm(@PathVariable int id, String catName, String catAge, String catSex, String catFixed, String catBreed, String catColor, String catEars, String catTail, String catClaw, String catLocation, String catLost, String catChip, String catDescription) {
+        Cat catToEdit = catRepository.findById(id);
         catToEdit.setCatName(catName);
         catToEdit.setCatAge(catAge);
         catToEdit.setCatSex(catSex);
@@ -87,6 +87,35 @@ public class CatController {
         catToEdit.setCatLost(catLost);
         catToEdit.setCatChip(catChip);
         catToEdit.setCatDescription(catDescription);
+        catRepository.save(catToEdit);
+        return "redirect:";
+    }
+*/
+    @GetMapping("edit/{id}")
+    public String displayEditForm(Model model, @PathVariable int id) {
+        Cat catToEdit = catRepository.findById(id);
+        model.addAttribute("cat", catToEdit);
+        String title = "Edit Cat " + catToEdit.getCatName() + "(id= " + catToEdit.getId() + ")";
+        model.addAttribute("title", title);
+        return "cats/edit";
+    }
+    @PostMapping("edit/{id}")
+    public String processEditForm(@PathVariable int id, @ModelAttribute("cats") Cat cat){
+        Cat catToEdit = catRepository.findById(id);
+        catToEdit.setCatName(cat.getCatName());
+        catToEdit.setCatAge(cat.getCatAge());
+        catToEdit.setCatSex(cat.getCatSex());
+        catToEdit.setCatFixed(cat.getCatFixed());
+        catToEdit.setCatBreed(cat.getCatBreed());
+        catToEdit.setCatColor(cat.getCatColor());
+        catToEdit.setCatEars(cat.getCatEars());
+        catToEdit.setCatTail(cat.getCatTail());
+        catToEdit.setCatClaw(cat.getCatClaw());
+        catToEdit.setCatLocation(cat.getCatLocation());
+        catToEdit.setCatLost(cat.getCatLost());
+        catToEdit.setCatChip(cat.getCatChip());
+        catToEdit.setCatDescription(cat.getCatDescription());
+        catRepository.save(catToEdit);
         return "redirect:";
     }
     @GetMapping("tnr")
