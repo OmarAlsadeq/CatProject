@@ -3,22 +3,34 @@
 <head>
     <nav th:replace="fragments :: head"></nav>
     <nav th:replace="fragments :: mainHeader"></nav>
+    <style>
+        .form-container {
+            border: 1px solid pink;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        h1 {
+            font-family: "Arial", sans-serif;
+        }
+    </style>
 </head>
 <body class="container">
 
-<div>
+
+<div class="text-center form-container">
+    <h1>Login Form</h1>
 <form method="post">
     <div class="form-group">
         <label th:for="username">Username
             <input class="form-control" th:field="${loginFormDTO.username}">
         </label>
-        <p class="error" th:errors="${loginFormDTO.username}"></p>
+        <p th:errors="${loginFormDTO.username}"></p>
     </div>
     <div class="form-group">
         <label>Password
             <input class="form-control" th:field="${loginFormDTO.password}" type="password">
         </label>
-        <p class="error" th:errors="${loginFormDTO.password}"></p>
+        <p th:errors="${loginFormDTO.password}"></p>
     </div>
 
     <input type="submit" class="btn btn-primary" value="Log In" />

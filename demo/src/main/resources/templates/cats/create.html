@@ -13,7 +13,7 @@
 
 
 
-<form method="post" th:object="${cat}">
+<form method="post" id="cat-form" th:object="${cat}">
 
     <div class="form-group">
         <label>Date Cat Was Last Seen:<span class="form-required">*</span></label>
@@ -190,11 +190,11 @@
         <input type="text" id="longitude" th:field="*{longitude}" />
     </div>
 </li>
-<!--
+
 <div class="form-group">
   <label for="exampleFormControlFile1">Upload Cat Picture</label>
-  <input type="file" name="catPic" class="form-control-file" id="exampleFormControlFile1">
-</div>-->
+  <input type="file" name="image" class="form-control-file" id="exampleFormControlFile1">
+</div>
 <div class="form-group">
     <input type="submit" value="Create Cat" class="btn btn-success">
 </div>

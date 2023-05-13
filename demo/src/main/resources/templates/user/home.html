@@ -2,43 +2,55 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head>
     <nav th:replace="fragments :: head"></nav>
-    <nav th:replace="fragments :: mainHeader"></nav>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha384-e+tQY1nXovny2Md91Mb8o7R5MuKbTpE5w5oUCB8Wq1jC5G9X7g01xrljKp7MBKyH" crossorigin="" />
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha384-D2fzjifc0CDgN/8HM+zH/LI/wwZZi9jznb66PS+b3qLPzUvZ6UfmwDFOaGkW+pGX" crossorigin=""></script>
-<style>
-    #map { height: 100%; }
-</style>
+
+    <header>
+        <nav th:replace="fragments :: mainHeader"></nav>
+    </header>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCJjo0344wmV6MNeFCM294fv1TGlLLHr98"></script>
+    <style>
+        #map {
+            height: 400px;
+            margin-bottom: 20px;
+        }
+        .card {
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
 <body>
-<nav th:replace="fragments :: catButtons"></nav>
 
-<h1>MeowBoard</h1>
+<main>
+    <nav th:replace="fragments :: catButtons"></nav>
 
-<div id="map"></div>
-<script>
-  var mymap = L.map('map').setView([51.505, -0.09], 13);
+    <h1>Cat Rescue Organization</h1>
+
+    <div class="card">
+        <div class="card-body">
+            <h2>Account Overview</h2>
+            <p>Thank you for being a part of our cat rescue organization! Here's an overview of your account:</p>
+            <ul>
+                <li><strong>Donation Amount:</strong> $50.00</li>
+                <li><strong>Last Donation:</strong> January 1, 2022</li>
+                <li><strong>Number of Cats Helped:</strong> 10</li>
+                <li><strong>Upcoming Events:</strong> Kitten Adoption Day on May 15, 2023</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <h2>Map of Cat Rescue Locations</h2>
+            <p>Here are the locations of the cats on a map:</p>
+            <div id="map"></div>
+        </div>
+    </div>
+
+    <form method="post">
+
+        <input type="submit" class="btn btn-success" value="Log Out">
+    </form>
+</main>
 
 
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors',
-    maxZoom: 19
-  }).addTo(map);
-
-
-  var catIcon = L.icon({
-    iconUrl: 'cat-icon.png',
-    iconSize: [40, 40],
-    iconAnchor: [20, 20],
-    popupAnchor: ][0, -10]
-    });
-  var cats = [[${cats}]];
-  cats.forEach(function(cat) {
-    var marker = L.marker([cat.getLatitude(), cat.getLongitude()], {icon: catIcon}).addTo(map);
-    marker.bindPopup(cat.getcatName() + "<br>" + cat.getcatBreed() + "<br>" + cat.getcatAge() + " years old");
-  });
-</script>
-<form method="post">
-<input type="submit" class="btn btn-success" value="Log Out">
-</form>
 </body>
 </html>

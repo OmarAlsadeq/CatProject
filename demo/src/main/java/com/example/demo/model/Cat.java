@@ -1,6 +1,7 @@
 package com.example.demo.model;
 
 import javax.persistence.Entity;
+import javax.persistence.Lob;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
@@ -44,13 +45,15 @@ public class Cat extends AbstractEntity {
 
     private double latitude;
 
-  /*  private String catPic;
-*/
+    @Lob
+    private byte[] image;
 
 
-    public Cat(String catName,  String catAge,/* String catDate,*/ String catSex, String catFixed, String catBreed, String catColor, String catEars, String catTail, String catClaw, String catLocation, String catLost, String catCollar, String catChip, String catDescription, double latitude, double longitude/*, String catPic*/) {
+
+
+    public Cat(String catName,  String catAge, String catDate, String catSex, String catFixed, String catBreed, String catColor, String catEars, String catTail, String catClaw, String catLocation, String catLost, String catCollar, String catChip, String catDescription, double latitude, double longitude, byte[] image) {
         this.catName=catName;
-        /*this.catDate=catDate;*/
+        this.catDate=catDate;
         this.catSex=catSex;
         this.catFixed=catFixed;
         this.catAge=catAge;
@@ -66,7 +69,7 @@ public class Cat extends AbstractEntity {
         this.catDescription=catDescription;
         this.latitude=latitude;
         this.longitude=longitude;
-      /*  this.catPic=catPic;*/
+        this.image=image;
     }
     public Cat() {};
 
@@ -206,15 +209,15 @@ public class Cat extends AbstractEntity {
         this.latitude = latitude;
     }
 
-    /*
-        public String getCatPic() {
-            return catPic;
-        }
+    public byte[] getImage() {
+        return image;
+    }
 
-        public void setCatPic(String catPic) {
-            this.catPic = catPic;
-        }
-    */
+    public void setImage(byte[] image) {
+        this.image = image;
+    }
+
+
     @Override
     public String toString(){
         return catName;

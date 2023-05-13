@@ -20,20 +20,6 @@ public class CatController {
     @Autowired
     private CatRepository catRepository;
 
-/*    @GetMapping
-    public String displayMap(Model model) {
-        // Set up the map using Leaflet
-        model.addAttribute("leafletScript", "https://unpkg.com/leaflet@1.7.1/dist/leaflet.js");
-        model.addAttribute("leafletCss", "https://unpkg.com/leaflet@1.7.1/dist/leaflet.css");
-        model.addAttribute("mapId", "mapid");
-
-        // Add markers for each cat
-        Iterable<Cat> cats = catRepository.findAll();
-        model.addAttribute("cats", cats);
-
-        return "map";
-    }
-*/
     @GetMapping
     public String displayAllCats(Model model){
         model.addAttribute("title","All Cats");
@@ -77,22 +63,6 @@ public class CatController {
         return "redirect:";
     }
 
-    @GetMapping("editOpt")
-    public String displayEditCatForm(Model model){
-        model.addAttribute("title", "Edit Cats");
-        model.addAttribute("cats", catRepository.findAll());
-        return "cats/editOpt";
-    }
-
-    @PostMapping("editOpt")
-    public String processEditCatForm(@RequestParam(required = false) int[] catIds) {
-        if (catIds != null) {
-            for (int id : catIds) {
-                catRepository.findById(id);
-            }
-        }
-        return "redirect:";
-    }
 
     @GetMapping("edit/{id}")
     public String displayEditForm(Model model, @PathVariable int id) {
@@ -126,5 +96,9 @@ public class CatController {
     @GetMapping("tnr")
     public String showTNRPage(){
         return "cats/tnr";
+    }
+    @GetMapping("lost")
+    public String showlostCatPage(){
+        return "cats/lost";
     }
 }
