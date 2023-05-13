@@ -3,19 +3,40 @@
 <head>
     <nav th:replace="fragments :: head"></nav>
     <nav th:replace="fragments :: mainHeader"></nav>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha384-e+tQY1nXovny2Md91Mb8o7R5MuKbTpE5w5oUCB8Wq1jC5G9X7g01xrljKp7MBKyH" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha384-D2fzjifc0CDgN/8HM+zH/LI/wwZZi9jznb66PS+b3qLPzUvZ6UfmwDFOaGkW+pGX" crossorigin=""></script>
+<style>
+    #map { height: 100%; }
+</style>
 </head>
 <body>
 <nav th:replace="fragments :: catButtons"></nav>
 
 <h1>MeowBoard</h1>
-<div class="card" style="width: 18rem;">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div>
-</div>
+
+<div id="map"></div>
+<script>
+  var mymap = L.map('map').setView([51.505, -0.09], 13);
+
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors',
+    maxZoom: 19
+  }).addTo(map);
+
+
+  var catIcon = L.icon({
+    iconUrl: 'cat-icon.png',
+    iconSize: [40, 40],
+    iconAnchor: [20, 20],
+    popupAnchor: ][0, -10]
+    });
+  var cats = [[${cats}]];
+  cats.forEach(function(cat) {
+    var marker = L.marker([cat.getLatitude(), cat.getLongitude()], {icon: catIcon}).addTo(map);
+    marker.bindPopup(cat.getcatName() + "<br>" + cat.getcatBreed() + "<br>" + cat.getcatAge() + " years old");
+  });
+</script>
 <form method="post">
 <input type="submit" class="btn btn-success" value="Log Out">
 </form>

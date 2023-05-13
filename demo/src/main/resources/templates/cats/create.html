@@ -3,6 +3,9 @@
 <head>
     <nav th:replace="fragments :: head"></nav>
     <nav th:replace="fragments :: mainHeader"></nav>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha384-e+tQY1nXovny2Md91Mb8o7R5MuKbTpE5w5oUCB8Wq1jC5G9X7g01xrljKp7MBKyH" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha384-D2fzjifc0CDgN/8HM+zH/LI/wwZZi9jznb66PS+b3qLPzUvZ6UfmwDFOaGkW+pGX" crossorigin=""></script>
+
 </head>
 <body class="container">
 
@@ -10,7 +13,7 @@
 
 
 
-<form method="post">
+<form method="post" th:object="${cat}">
 
     <div class="form-group">
         <label>Date Cat Was Last Seen:<span class="form-required">*</span></label>
@@ -174,6 +177,18 @@
   <div class="form-group">
         <textarea style="width:648px;height:163px" name="catDescription" data-component="textarea" required="" aria-labelledby="label_19" data-customhint="Type here..." customhinted="true" placeholder="Type here..." spellcheck="false"></textarea> </div>
   </div>
+</li>
+<li>
+    <div>
+        <label for="latitude">Latitude:</label>
+        <input type="text" id="latitude" th:field="*{latitude}" />
+    </div>
+</li>
+    <li>
+    <div>
+        <label for="longitude">Longitude:</label>
+        <input type="text" id="longitude" th:field="*{longitude}" />
+    </div>
 </li>
 <!--
 <div class="form-group">

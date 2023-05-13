@@ -40,11 +40,15 @@ public class Cat extends AbstractEntity {
     @Size(max = 500, message = "Description too long. ")
     private String catDescription;
 
+    private double longitude;
+
+    private double latitude;
+
   /*  private String catPic;
 */
 
 
-    public Cat(String catName,  String catAge,/* String catDate,*/ String catSex, String catFixed, String catBreed, String catColor, String catEars, String catTail, String catClaw, String catLocation, String catLost, String catCollar, String catChip, String catDescription/*, String catPic*/) {
+    public Cat(String catName,  String catAge,/* String catDate,*/ String catSex, String catFixed, String catBreed, String catColor, String catEars, String catTail, String catClaw, String catLocation, String catLost, String catCollar, String catChip, String catDescription, double latitude, double longitude/*, String catPic*/) {
         this.catName=catName;
         /*this.catDate=catDate;*/
         this.catSex=catSex;
@@ -60,6 +64,8 @@ public class Cat extends AbstractEntity {
         this.catCollar=catCollar;
         this.catChip=catChip;
         this.catDescription=catDescription;
+        this.latitude=latitude;
+        this.longitude=longitude;
       /*  this.catPic=catPic;*/
     }
     public Cat() {};
@@ -183,15 +189,32 @@ public class Cat extends AbstractEntity {
     public void setCatDescription(String catDescription) {
         this.catDescription = catDescription;
     }
-/*
-    public String getCatPic() {
-        return catPic;
+
+    public double getLongitude() {
+        return longitude;
     }
 
-    public void setCatPic(String catPic) {
-        this.catPic = catPic;
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
     }
-*/
+
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
+
+    /*
+        public String getCatPic() {
+            return catPic;
+        }
+
+        public void setCatPic(String catPic) {
+            this.catPic = catPic;
+        }
+    */
     @Override
     public String toString(){
         return catName;

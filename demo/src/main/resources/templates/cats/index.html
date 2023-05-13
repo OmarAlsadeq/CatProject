@@ -12,7 +12,6 @@
 <table class="table table-striped">
     <thead>
     <tr>
-        <!-- <th>Date Last Seen</th>-->
 
         <th>ID</th>
         <th>Date</th>
@@ -35,7 +34,6 @@
     </tr>
     </thead>
   <tr th:each="cat : ${cats}">
-      <!-- <td th:text="${cat.catDate}"></td>-->
       <td th:text="${cat.id}"></td>
       <td th:text="${cat.catDate}"></td>
       <td th:text="${cat.catName}"></td>

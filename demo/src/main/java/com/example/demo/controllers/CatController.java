@@ -1,7 +1,6 @@
 package com.example.demo.controllers;
 
 
-import com.example.demo.data.CatData;
 import com.example.demo.data.CatRepository;
 import com.example.demo.model.Cat;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +20,20 @@ public class CatController {
     @Autowired
     private CatRepository catRepository;
 
+/*    @GetMapping
+    public String displayMap(Model model) {
+        // Set up the map using Leaflet
+        model.addAttribute("leafletScript", "https://unpkg.com/leaflet@1.7.1/dist/leaflet.js");
+        model.addAttribute("leafletCss", "https://unpkg.com/leaflet@1.7.1/dist/leaflet.css");
+        model.addAttribute("mapId", "mapid");
+
+        // Add markers for each cat
+        Iterable<Cat> cats = catRepository.findAll();
+        model.addAttribute("cats", cats);
+
+        return "map";
+    }
+*/
     @GetMapping
     public String displayAllCats(Model model){
         model.addAttribute("title","All Cats");
@@ -55,42 +68,32 @@ public class CatController {
     }
 
     @PostMapping("delete")
-    public String processDeleteCatForm(@RequestParam(required = false) int[] catIds){
-        if(catIds != null) {
+    public String processDeleteCatForm(@RequestParam(required = false) int[] catIds) {
+        if (catIds != null) {
             for (int id : catIds) {
                 catRepository.deleteById(id);
             }
         }
         return "redirect:";
-    }/*
-    @GetMapping("edit/{id}")
-    public String displayEditForm(Model model, @PathVariable int id) {
-        Cat catToEdit = catRepository.findById(id);
-        model.addAttribute("cat", catToEdit);
-        String title = "Edit Cat " + catToEdit.getCatName() + "(id= " + catToEdit.getId() + ")";
-        model.addAttribute("title", title);
-        return "cats/edit";
     }
-    @PostMapping("edit/{id}")
-    public String processEditForm(@PathVariable int id, String catName, String catAge, String catSex, String catFixed, String catBreed, String catColor, String catEars, String catTail, String catClaw, String catLocation, String catLost, String catChip, String catDescription) {
-        Cat catToEdit = catRepository.findById(id);
-        catToEdit.setCatName(catName);
-        catToEdit.setCatAge(catAge);
-        catToEdit.setCatSex(catSex);
-        catToEdit.setCatFixed(catFixed);
-        catToEdit.setCatBreed(catBreed);
-        catToEdit.setCatColor(catColor);
-        catToEdit.setCatEars(catEars);
-        catToEdit.setCatTail(catTail);
-        catToEdit.setCatClaw(catClaw);
-        catToEdit.setCatLocation(catLocation);
-        catToEdit.setCatLost(catLost);
-        catToEdit.setCatChip(catChip);
-        catToEdit.setCatDescription(catDescription);
-        catRepository.save(catToEdit);
+
+    @GetMapping("editOpt")
+    public String displayEditCatForm(Model model){
+        model.addAttribute("title", "Edit Cats");
+        model.addAttribute("cats", catRepository.findAll());
+        return "cats/editOpt";
+    }
+
+    @PostMapping("editOpt")
+    public String processEditCatForm(@RequestParam(required = false) int[] catIds) {
+        if (catIds != null) {
+            for (int id : catIds) {
+                catRepository.findById(id);
+            }
+        }
         return "redirect:";
     }
-*/
+
     @GetMapping("edit/{id}")
     public String displayEditForm(Model model, @PathVariable int id) {
         Cat catToEdit = catRepository.findById(id);
@@ -115,6 +118,8 @@ public class CatController {
         catToEdit.setCatLost(cat.getCatLost());
         catToEdit.setCatChip(cat.getCatChip());
         catToEdit.setCatDescription(cat.getCatDescription());
+        catToEdit.setLatitude(cat.getLatitude());
+        catToEdit.setLongitude(cat.getLongitude());
         catRepository.save(catToEdit);
         return "redirect:";
     }
