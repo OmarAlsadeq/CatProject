@@ -1,4 +1,5 @@
-import com.example.demo.model.Cat;
+package com.example.demo.model;
+
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.notification.Notification;
