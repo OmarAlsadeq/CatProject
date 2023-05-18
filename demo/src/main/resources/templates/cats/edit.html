@@ -10,9 +10,8 @@
 
 
 <form method="post"  th:action="@{/cats/edit}">
-
+    <input type="hidden" th:value="${cat.id}" th:name="catId">
     <div class="form-group">
-        <input type="hidden" th:value="${cat.id}" name="catId" />
         <li><label for="name">Cat's Name<span class="form-required">*</span> </label>
             <input type="text" name="catName" id="name" class="form-control" data-type="input-textbox" data-defaultvalue="" style="width:310px" size="310" th:value="${cat.catName}" data-component="textbox" aria-labelledby="label_5" required="">
             <input type="hidden" th:value="${cat.catName}" name="catName">
@@ -129,20 +128,6 @@
     </div>
 
 
-    <li><label> Location Lost<span class="form-required">*</span> </label>
-        <div>
-        <span style="vertical-align:top">
-            <textarea name="catLocation" style="width:648px;height:80px" data-component="textarea" required="" th:value="${cat.catLocation}" aria-labelledby="label_10 sublabel_input_10" data-customhint="Type here..." customhinted="true" placeholder="Type here..." spellcheck="false"></textarea>
-            <label style="min-height:13px" aria-hidden="false">Address or cross streets</label></span>
-        </div>
-    </li>
-
-
-    <li><label> ZIP Code of Location Lost<span class="form-required">*</span></label>
-        <div data-type="control_textbox">
-            <input type="text" name="catLost" data-type="input-textbox" class="form-textbox validate[required]" data-defaultvalue="" style="width:310px" size="310" th:value="${cat.catLost}" data-component="textbox" aria-labelledby="label_30" required="">
-        </div>
-    </li>
 
     <li><label> Was your cat wearing a collar or harness?<span>*</span> </label>
         <div class="form-check">
@@ -177,6 +162,14 @@
             <textarea style="width:648px;height:163px" name="catDescription" data-component="textarea" required="" th:value="${cat.catDescription}" aria-labelledby="label_19" data-customhint="Type here..." customhinted="true" placeholder="Type here..." spellcheck="false"></textarea> </div>
         </div>
     </li>
+
+    <div class="form-group">
+        <label>Location Where Cat Was Last Seen<span class="form-required">*</span></label>
+        <div id="map" style="width: 100%; height: 400px;"></div>
+        <input type="hidden" id="catLat" name="catLat" th:value="${cat.latitude}">
+        <input type="hidden" id="catLng" name="catLng" th:value="${cat.longitude}">
+    </div>
+
     <div class="form-group">
       <label for="exampleFormControlFile1">Upload Cat Picture</label>
       <input type="file" name="catPic" class="form-control-file" id="exampleFormControlFile1">
@@ -185,7 +178,35 @@
         <input type="submit" value="Update Cat" class="btn btn-success">
     </div>
 </form>
+<div>
+    <script>
+            var map = L.map('map').setView([39.072694, -94.546593], 16);
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'}).addTo(map);
 
+   var kittyIcon = L.icon({
+    iconUrl: '/catimages/cuteKitty.png',
+    iconSize:     [38, 38], // size of the icon
+    iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+});
+
+
+ // Add the marker on map click
+    var marker = null;
+    map.on('click', function(e) {
+        if (marker) {
+            map.removeLayer(marker);
+        }
+        marker = L.marker(e.latlng, {icon: kittyIcon}).addTo(map);
+        document.getElementById('catLat').value = e.latlng.lat;
+        document.getElementById('catLng').value = e.latlng.lng;
+    });
+
+
+        </script>
+</div>
 
 
 </body>

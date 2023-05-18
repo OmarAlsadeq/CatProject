@@ -31,10 +31,6 @@ public class Cat extends AbstractEntity {
 
     private String catClaw;
 
-    private String catLocation;
-
-    private String catLost;
-
     private String catCollar;
 
     private String catChip;
@@ -51,7 +47,7 @@ public class Cat extends AbstractEntity {
 
 
 
-    public Cat(String catName,  String catAge, String catDate, String catSex, String catFixed, String catBreed, String catColor, String catEars, String catTail, String catClaw, String catLocation, String catLost, String catCollar, String catChip, String catDescription, double latitude, double longitude, byte[] image) {
+    public Cat(String catName,  String catAge, String catDate, String catSex, String catFixed, String catBreed, String catColor, String catEars, String catTail, String catClaw, String catCollar, String catChip, String catDescription, double latitude, double longitude, byte[] image) {
         this.catName=catName;
         this.catDate=catDate;
         this.catSex=catSex;
@@ -62,8 +58,6 @@ public class Cat extends AbstractEntity {
         this.catEars=catEars;
         this.catTail=catTail;
         this.catClaw=catClaw;
-        this.catLocation=catLocation;
-        this.catLost=catLost;
         this.catCollar=catCollar;
         this.catChip=catChip;
         this.catDescription=catDescription;
@@ -153,21 +147,6 @@ public class Cat extends AbstractEntity {
         this.catClaw = catClaw;
     }
 
-    public String getCatLocation() {
-        return catLocation;
-    }
-
-    public void setCatLocation(String catLocation) {
-        this.catLocation = catLocation;
-    }
-
-    public String getCatLost() {
-        return catLost;
-    }
-
-    public void setCatLost(String catLost) {
-        this.catLost = catLost;
-    }
 
     public String getCatCollar() {
         return catCollar;

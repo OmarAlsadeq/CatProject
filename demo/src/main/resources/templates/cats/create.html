@@ -2,22 +2,21 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head>
     <nav th:replace="fragments :: head"></nav>
-    <nav th:replace="fragments :: mainHeader"></nav>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha384-e+tQY1nXovny2Md91Mb8o7R5MuKbTpE5w5oUCB8Wq1jC5G9X7g01xrljKp7MBKyH" crossorigin="" />
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha384-D2fzjifc0CDgN/8HM+zH/LI/wwZZi9jznb66PS+b3qLPzUvZ6UfmwDFOaGkW+pGX" crossorigin=""></script>
-
+    <header>
+        <nav th:replace="fragments :: mainHeader"></nav>
+    </header>
 </head>
+
 <body class="container">
 
 <h1 class="headers">Cat Form</h1>
-
 
 
 <form method="post" id="cat-form" th:object="${cat}">
 
     <div class="form-group">
         <label>Date Cat Was Last Seen:<span class="form-required">*</span></label>
-            <input type="date" class="form-control" name="catDate">
+            <input type="date" class="form-control" name="catDate" style="width: 200px;">
     </div>
     <div class="form-group">
  <li><label for="name">Cat's Name<span class="form-required">*</span> </label>
@@ -34,11 +33,11 @@
     <div class="form-check">
 <li><label>Sex<span class="form-required">*</span></label>
     <div>
-        <input type="radio" name="catSex" class="form-check-input" id="s1" value="Female" checked>
+        <input type="radio" name="catSex" class="form-check-input" id="s1" value="Female">
     <label class="form-check-label" for="s1">Female</label>
 </div>
 <div>
-        <input type="radio" name="catSex" value="Male" class="form-check-input" id="s2" checked>
+        <input type="radio" name="catSex" value="Male" class="form-check-input" id="s2" >
         <label class="form-check-label" for="s2">Male</label>
 </div>
 </li>
@@ -64,13 +63,13 @@
     <div class="form-check">
 <li><label> Breed<span>*</span> </label>
     <div>
-        <input type="radio" name="catBreed" class="form-check-input" id="b1" value="Domestic Short Hair" required="">
+        <input type="radio" name="catBreed" class="form-check-input" id="b1" value="Domestic Short Hair">
     <label for="b1">Domestic Short Hair</label>
     </div><div>
-        <input type="radio" class="form-check-input" name="catBreed" id="b2" value="Domestic Medium Hair" required="">
+        <input type="radio" class="form-check-input" name="catBreed" id="b2" value="Domestic Medium Hair">
    <label for="b2"> Domestic Medium Hair</label>
     </div><div>
-        <input type="radio" class="form-check-input" name="catBreed" id="b3" value="Domestic Long Hair" required="">
+        <input type="radio" class="form-check-input" name="catBreed" id="b3" value="Domestic Long Hair">
     <label for="b3"> Domestic Long Hair</label>
     </div><div>
         <input type="radio" value="other" tabindex="0" class="form-check-input" name="catBreed" id="b4">
@@ -130,20 +129,6 @@
     </div>
 
 
-    <li><label> Location Lost<span class="form-required">*</span> </label>
-        <div>
-        <span style="vertical-align:top">
-            <textarea name="catLocation" style="width:648px;height:80px" data-component="textarea" required="" aria-labelledby="label_10 sublabel_input_10" data-customhint="Type here..." customhinted="true" placeholder="Type here..." spellcheck="false"></textarea>
-            <label style="min-height:13px" aria-hidden="false">Address or cross streets</label></span>
-        </div>
-        </li>
-
-
-<li><label> ZIP Code of Location Lost<span class="form-required">*</span></label>
-   <div data-type="control_textbox">
-        <input type="text" name="catLost" data-type="input-textbox" class="form-textbox validate[required]" data-defaultvalue="" style="width:310px" size="310" value="" data-component="textbox" aria-labelledby="label_30" required="">
-   </div>
-</li>
 
 <li><label> Was your cat wearing a collar or harness?<span>*</span> </label>
     <div class="form-check">
@@ -176,20 +161,13 @@
 <li><label> Describe Your Cat. The more information you can give us about your cat’s physical characteristics, the better! How will we be able to identify YOUR cat when it comes in the door?<span>*</span> </label>
   <div class="form-group">
         <textarea style="width:648px;height:163px" name="catDescription" data-component="textarea" required="" aria-labelledby="label_19" data-customhint="Type here..." customhinted="true" placeholder="Type here..." spellcheck="false"></textarea> </div>
-  </div>
 </li>
-<li>
-    <div>
-        <label for="latitude">Latitude:</label>
-        <input type="text" id="latitude" th:field="*{latitude}" />
+    <div class="form-group">
+        <label>Location Where Cat Was Last Seen<span class="form-required">*</span></label>
+        <div id="map" style="width: 100%; height: 400px;"></div>
+        <input type="hidden" id="catLat" name="catLat">
+        <input type="hidden" id="catLng" name="catLng">
     </div>
-</li>
-    <li>
-    <div>
-        <label for="longitude">Longitude:</label>
-        <input type="text" id="longitude" th:field="*{longitude}" />
-    </div>
-</li>
 
 <div class="form-group">
   <label for="exampleFormControlFile1">Upload Cat Picture</label>
@@ -200,6 +178,35 @@
 </div>
 </form>
 
+<div>
+    <script>
+            var map = L.map('map').setView([39.072694, -94.546593], 16);
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'}).addTo(map);
+
+   var kittyIcon = L.icon({
+    iconUrl: '/catimages/cuteKitty.png',
+    iconSize:     [38, 38], // size of the icon
+    iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+});
+
+
+ // Add the marker on map click
+    var marker = null;
+    map.on('click', function(e) {
+        if (marker) {
+            map.removeLayer(marker);
+        }
+        marker = L.marker(e.latlng, {icon: kittyIcon}).addTo(map);
+        document.getElementById('catLat').value = e.latlng.lat;
+        document.getElementById('catLng').value = e.latlng.lng;
+    });
+
+
+        </script>
+</div>
 
 
 </body>

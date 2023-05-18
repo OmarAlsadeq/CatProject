@@ -21,17 +21,13 @@ repositories {
 }
 
 dependencies {
-	implementation 'com.vaadin:vaadin-core:14.7.3'
-	implementation 'com.vaadin:vaadin-flow:14.7.3'
-	implementation 'com.vaadin:vaadin-button:14.7.3'
-	implementation 'com.vaadin:vaadin-text-field:14.7.3'
-	implementation 'com.vaadin:vaadin-notification:14.7.3'
 	implementation 'com.google.android.gms:play-services-maps:18.1.0'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'mysql:mysql-connector-java'
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.security:spring-security-crypto'
+    implementation 'org.json:org.json:chargebee-1.0'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'

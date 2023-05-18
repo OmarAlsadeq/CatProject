@@ -6,6 +6,7 @@ import com.example.demo.model.Cat;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
@@ -32,7 +33,7 @@ public class CatController {
     }
 
     @PostMapping("create")
-    public String CreateCat(@ModelAttribute @Valid Cat newCat,
+    public String createCat(@ModelAttribute @Valid Cat newCat,
                             Errors errors, Model model){
         if(errors.hasErrors()) {
             model.addAttribute("title", "Create Cat");
@@ -57,20 +58,26 @@ public class CatController {
                 catRepository.deleteById(id);
             }
         }
-        return "redirect:";
+        return "redirect:/cats";
     }
 
 
-    @GetMapping("edit/{id}")
-    public String displayEditForm(Model model, @PathVariable int id) {
+    @GetMapping("cats/edit")
+    public String displayEditForm(Model model, @RequestParam("id") int id) {
         Cat catToEdit = catRepository.findById(id);
+        if (catToEdit == null) {
+            // Handle case where cat with the given id is not found
+            // You can redirect to an error page or display an error message
+            return "cats/edit";
+        }
+
         model.addAttribute("cat", catToEdit);
-        String title = "Edit Cat " + catToEdit.getCatName() + "(id= " + catToEdit.getId() + ")";
+        String title = "Edit Cat " + catToEdit.getCatName() + " (id=" + catToEdit.getId() + ")";
         model.addAttribute("title", title);
         return "cats/edit";
     }
-    @PostMapping("edit/{id}")
-    public String processEditForm(@PathVariable int id, @ModelAttribute("cats") Cat cat){
+    @PostMapping("cats/edit")
+    public String processEditForm(@RequestParam("id") int id, @ModelAttribute("cats") Cat cat){
         Cat catToEdit = catRepository.findById(id);
         catToEdit.setCatName(cat.getCatName());
         catToEdit.setCatAge(cat.getCatAge());
@@ -81,8 +88,6 @@ public class CatController {
         catToEdit.setCatEars(cat.getCatEars());
         catToEdit.setCatTail(cat.getCatTail());
         catToEdit.setCatClaw(cat.getCatClaw());
-        catToEdit.setCatLocation(cat.getCatLocation());
-        catToEdit.setCatLost(cat.getCatLost());
         catToEdit.setCatChip(cat.getCatChip());
         catToEdit.setCatDescription(cat.getCatDescription());
         catToEdit.setLatitude(cat.getLatitude());
@@ -98,4 +103,5 @@ public class CatController {
     public String showlostCatPage(){
         return "cats/lost";
     }
+
 }
