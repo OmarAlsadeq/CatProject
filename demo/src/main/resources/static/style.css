@@ -1,14 +1,32 @@
-div.scroll-container {
-  width: 600px;
-  overflow: auto;
-  white-space: nowrap;
-  padding: 1px;
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
+ul {
+  list-style-type: none;
+}
+/* Custom CSS */
+#map {
+            height: 400px;
+            margin-bottom: 20px;
+        }
 
-div.scroll-container img {
-  padding: 10px;
-}
-.header {
-max-width: 100%
-background-color: pink;
-}
+         .container {
+                    max-width: 600px;
+                    margin: 0 auto;
+                    padding: 20px;
+                    background-color: #f7f7f7;
+                    border-radius: 8px;
+                    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                    display: flex;
+                    justify-content: space-between;
+                }
+
+                .container p {
+                    font-size: 18px;
+                    text-align: center;
+                    line-height: 1.5;
+                    color: #333;
+                }
+

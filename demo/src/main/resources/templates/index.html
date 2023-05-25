@@ -4,43 +4,120 @@
     <nav th:replace="fragments :: head"></nav>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <script type="module" src="./index.js"></script>
-    <style>
-         h1, h2 {
-      color: #333333;
-      font-weight: bold;
-      text-align: center;
-    }
-    </style>
     <header>
-        <nav th:replace="fragments :: buttonGroup"></nav>
+        <nav th:replace="fragments :: newHeader"></nav>
     </header>
+    <style>
+        #map {
+            height: 400px;
+            margin-bottom: 20px;
+        }
+         body {
+         background-color: #a4c4e2;
+}
+.cat-icon {
+            width: 100px; /* Adjust the size as needed */
+            height: 100px; /* Adjust the size as needed */
+        }
+
+    </style>
 </head>
-<body class="container-fluid">
-<hr>
-<div class="container text-center">
-    <div class="row row-cols-1 row-cols-sm-2">
-        <div class="col">
-            <div class="scroll-container border border-info-subtle">
-                <img th:src="@{/catimages/salem_Cat.jpg}" width="600px" height="400px" alt="kitten1">
-                <img th:src="@{/catimages/kitties1.jpg}" width="600px" height="400px" alt="kitten3">
-                <img th:src="@{/catimages/kitties2.jpg}" width="600px" height="400px" alt="kitten4">
-                <img th:src="@{/catimages/Mimi1.jpg}" width="500px" height="400px" alt="kitten5">
-            </div>
-        </div>
-        <div class="col">
-            <div class="container-md bg-body-tertiary">
-                <h4 class="fw-bold">Welcome to Rescue Meow, my cat rescue website! We are dedicated to helping cats in need find loving homes
-                    and providing them with the care they deserve. Our team is committed to making a difference in the lives of these furry friends,
-                    and we believe that every cat deserves a chance at a happy and healthy life. We hope that you will join us in our mission to save
-                    and protect cats, and that you will find the perfect addition to your family through rescue efforts.</h4>
-            </div>
-        </div>
+<body>
+    <div id="map"></div>
+<script>
+     var map = L.map('map').setView([39.072694, -94.546593], 16);
+     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'}).addTo(map);
+
+
+   var kittyIcon = L.icon({
+    iconUrl: '/catimages/cuteKitty.png',
+    iconSize:     [38, 38], // size of the icon
+    iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+    popupAnchor:  [22, 94] // point from which the popup should open relative to the iconAnchor
+});
+    L.marker([39.072694, -94.546593], {icon: kittyIcon}).addTo(map).bindPopup('Meow');
+L.marker([39.072877, -94.546943], {icon: kittyIcon}).addTo(map).bindPopup('Meow');
+L.marker([39.073173, -94.545918], {icon: kittyIcon}).addTo(map).bindPopup('Rawr');
+L.marker([39.072357, -94.546492], {icon: kittyIcon}).addTo(map).bindPopup('Meow');
+L.marker([39.072844, -94.547104], {icon: kittyIcon}).addTo(map).bindPopup('Meow');
+L.marker([39.072648, -94.546584], {icon: kittyIcon}).addTo(map).bindPopup('Meow');
+
+</script>
+
+<!--
+    <div class="w3-content w3-display-container">
+        <img class="mySlides" th:src="@{/catimages/k1.jpeg}" style="width:100%">
+        <img class="mySlides" th:src="@{/catimages/k2.jpeg}" style="width:100%">
+        <img class="mySlides" th:src="@{/catimages/k3.jpeg}" style="width:100%">
+        <img class="mySlides" th:src="@{/catimages/k4.jpeg}" style="width:100%">
+        <img class="mySlides" th:src="@{/catimages/k5.jpeg}" style="width:100%">
+        <img class="mySlides" th:src="@{/catimages/k6.jpeg}" style="width:100%">
+        BigButt
     </div>
-</div>
+<--Script below belongs to images above to scroll --
+<script>
+var slideIndex = 0;
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  slideIndex++;
+  if (slideIndex > x.length) {slideIndex = 1}
+  x[slideIndex-1].style.display = "block";
+  setTimeout(carousel, 2000); // Change image every 2 seconds
+}
+</script>
+-->
+
+            <!-- INTRO -->
+            <div class="w3-container container">
+                <h3 style="text-align: center; margin-top: 0;">Introducing RescueMeow: The Ultimate Neighborhood Cat Tracking Experience</h3>
+                    <p class="mdl-typography--headline" style="font-size:20px;">
+
+                        RescueMeow is an innovative and exciting feature for the website/game that I am building, designed to showcase logged cats in your area.
+                        With RescueMeow, users can explore a virtual map that displays the locations of neighborhood cats, creating a dynamic and interactive experience.
+                        Whether you're a cat lover, a curious explorer, or simply seeking feline companionship, RescueMeow offers a delightful way to discover and connect with the adorable cats in your community.
+                        Get ready to embark on a cat-filled adventure as you navigate the map, uncovering the whereabouts of these charming creatures and perhaps even stumbling upon unexpected surprises along the way.
+                        Join us on RescueMeow and let the journey begin!
+                    </p>
+                </div>
 <br>
-<div id="map"></div>
-<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap&v=weekly" defer></script>
-<hr>
+    <div class="w3-display-container w3-Pale-Blue">
+    <h2 class="w3-center" style="font-size:30px;">Rescue Cats & Kittens</h2>
+    </div>
+        <div class="w3-content w3-display-container">
+            <img class="mySlides" th:src="@{/catimages/k1.jpeg}" style="width:100%">
+            <img class="mySlides" th:src="@{/catimages/k2.jpeg}" style="width:100%">
+            <img class="mySlides" th:src="@{/catimages/k3.jpeg}" style="width:100%">
+            <img class="mySlides" th:src="@{/catimages/k4.jpeg}" style="width:100%">
+            <img class="mySlides" th:src="@{/catimages/k5.jpeg}" style="width:100%">
+            <img class="mySlides" th:src="@{/catimages/k6.jpeg}" style="width:100%">
+            BigButt
+        </div>
+        <!--Script below belongs to images above to scroll -->
+        <script>
+var slideIndex = 0;
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  slideIndex++;
+  if (slideIndex > x.length) {slideIndex = 1}
+  x[slideIndex-1].style.display = "block";
+  setTimeout(carousel, 2000); // Change image every 2 seconds
+}
+</script>
+
 <footer>
     <p class="text-center">&copy; 2023 RescueMeow. All rights reserved.</p>
 </footer>

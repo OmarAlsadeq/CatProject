@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+  <nav th:replace="fragments :: head"></nav>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+  <script type="module" src="./index.js"></script>
+  <header>
+    <nav th:replace="fragments :: newHeader"></nav>
+  </header>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <style>
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .cat-icon {
+            font-size: 3rem; /* Adjust the size as needed */
+        }
+        .about-section {
+            margin: 50px 0;
+            padding: 0 20px;
+            text-align: center;
+        }
+        .about-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        .about-section p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+<hr>
+<!-- Cat Icon -->
+<div class="container">
+  <i class="fas fa-cat cat-icon"></i>
+  <div class="w3-container">
+    <div class="about-section">
+      <h2>About the Game</h2>
+      <p>
+        Join the most heartwarming adventure of a lifetime! Step into the paws of a hero and embark on a game that brings the magic of rescuing real-life cats right to your fingertips.
+      </p>
+      <p>
+        In our game, your mission is to log in and help real-life cats, making a positive impact on the cat population problem. Experience the thrill of saving innocent lives, one meow at a time. Every decision you make and every challenge you overcome directly impacts the lives of adorable feline friends.
+      </p>
+      <p>
+        Immerse yourself in the joy of providing a loving home to those in need. From daring rooftop missions to heartwarming encounters with furry companions, you'll be captivated by the authentic and immersive gameplay that captures the true essence of cat rescue.
+      </p>
+      <p>
+        Unlock cool cat prizes as you progress through the game. The more cats you rescue, the stronger the bond you'll forge with these furry friends who will forever be grateful for your kindness. Collect unique items, accessories, and special powers that enhance your gameplay and help you save even more cats.
+      </p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p class="text-center">&copy; 2023 RescueMeow. All rights reserved.</p>
+</footer>
+</body>
+</html>

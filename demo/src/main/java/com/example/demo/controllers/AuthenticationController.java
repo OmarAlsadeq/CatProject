@@ -127,4 +127,7 @@ public class AuthenticationController {
         request.getSession().invalidate();
         return "redirect:/login";
     }
+
+    @GetMapping("user/about")
+    public String aboutPage(){return "user/about";}
 }
