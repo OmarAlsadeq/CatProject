@@ -42,13 +42,11 @@
             </button>
         </div>
         <div>
-            <style th:inline="text">
-    body{
-        background: url([[@{/catimages/CatBackground.jpg}]]);
-        background-size: 1600px 1200px;
-        background-repeat: no-repeat
-    }
-</style>
+            <style>
+                body {
+         background-color: #a4c4e2;
+}
+            </style>
         </div>
     </nav>
     </header>
@@ -56,46 +54,7 @@
 <body class="container-fluid">
 
 
-<nav th:fragment="buttonGroup">
-    <div class="navbar navbar-expand-lg">
-        <a class="navbar-brand" href="/">
-            <h1>RescueMeow</h1>
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0 fw-bold">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="user/login">Log In</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="user/register">Register</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Dropdown</a>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="cats/lost">Lost Cat</a></li>
-                    <li><a class="dropdown-item" href="cats/tnr">TNR</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="#">Report Neighborhood Cat</a></li>
-                </ul>
-                    </ul>
-                </li>
-                <form class="d-flex" role="search">
-                    <input class="form-conrtol me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
-        </div>
-    </div>
-    <style th:inline="text">
-    body{
-        background: url([[@{/catimages/CatBackground.jpg}]]);
-        background-size: cover;
-        background-repeat: no-repeat;
-    }
-</style>
+
 </nav>
 <nav th:fragment="newHeader">
     <div class="w3-display-container">
@@ -119,16 +78,16 @@
                     <a class="nav-link w3-hover-green" href="/user/login">Login</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle w3-hover-green" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Learning</a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="cats/lost">Lost Cat</a></li>
-                        <li><a class="dropdown-item" href="cats/tnr">TNR</a></li>
+                        <li><a class="dropdown-item" href="/cats/lost">Lost Cat</a></li>
+                        <li><a class="dropdown-item" href="/cats/tnr">TNR</a></li>
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="#">Report Neighborhood Cat</a></li>
                     </ul>
                 <li class="nav-item">
-                    <a class="nav-link" href="user/about">About</a>
+                    <a class="nav-link w3-hover-green" href="/user/aboutUs">About</a>
                 </li>
             </ul>
         </div>

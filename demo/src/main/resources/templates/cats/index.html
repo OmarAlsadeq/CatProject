@@ -6,10 +6,10 @@
         <nav th:replace="fragments :: mainHeader"></nav>
     </header>
 </head>
-<body class="container">
-<h2 class="headers"> All Cats</h2>
+<body>
+<h2 class="w3-container"> All Cats</h2>
 
-<form th:action="@{/cats/edit}" method="get">
+<form th:action="@{/cats/edit}" method="get" class="w3-container">
     <label for="cat-select">Select a cat to edit:</label>
     <select id="cat-select" name="id">
         <option th:each="cat : ${cats}" th:value="${cat.id}" th:text="${cat.catName}"></option>

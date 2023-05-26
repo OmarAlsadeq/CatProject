@@ -21,6 +21,7 @@ ul {
                     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
                     display: flex;
                     justify-content: space-between;
+                    align: left;
                 }
 
                 .container p {
@@ -30,3 +31,14 @@ ul {
                     color: #333;
                 }
 
+section::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+article {
+  float: left;
+  padding: 20px;
+  width: 90%;
+  background-color: #f1f1f1;
+}

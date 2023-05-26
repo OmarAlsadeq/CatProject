@@ -130,4 +130,7 @@ public class AuthenticationController {
 
     @GetMapping("user/about")
     public String aboutPage(){return "user/about";}
+
+    @GetMapping("user/aboutUs")
+    public String aboutUsPage(){return "user/aboutUs";}
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<html lang="en" xmlns:th="http://www.thymeleaf.org/" xmlns="http://www.w3.org/1999/html">
 <head>
     <nav th:replace="fragments :: head"></nav>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
@@ -46,34 +46,7 @@ L.marker([39.072648, -94.546584], {icon: kittyIcon}).addTo(map).bindPopup('Meow'
 
 </script>
 
-<!--
-    <div class="w3-content w3-display-container">
-        <img class="mySlides" th:src="@{/catimages/k1.jpeg}" style="width:100%">
-        <img class="mySlides" th:src="@{/catimages/k2.jpeg}" style="width:100%">
-        <img class="mySlides" th:src="@{/catimages/k3.jpeg}" style="width:100%">
-        <img class="mySlides" th:src="@{/catimages/k4.jpeg}" style="width:100%">
-        <img class="mySlides" th:src="@{/catimages/k5.jpeg}" style="width:100%">
-        <img class="mySlides" th:src="@{/catimages/k6.jpeg}" style="width:100%">
-        BigButt
-    </div>
-<--Script below belongs to images above to scroll --
-<script>
-var slideIndex = 0;
-carousel();
 
-function carousel() {
-  var i;
-  var x = document.getElementsByClassName("mySlides");
-  for (i = 0; i < x.length; i++) {
-    x[i].style.display = "none";
-  }
-  slideIndex++;
-  if (slideIndex > x.length) {slideIndex = 1}
-  x[slideIndex-1].style.display = "block";
-  setTimeout(carousel, 2000); // Change image every 2 seconds
-}
-</script>
--->
 
             <!-- INTRO -->
             <div class="w3-container container">
@@ -88,18 +61,34 @@ function carousel() {
                     </p>
                 </div>
 <br>
-    <div class="w3-display-container w3-Pale-Blue">
-    <h2 class="w3-center" style="font-size:30px;">Rescue Cats & Kittens</h2>
+
+    <div class="w3-container w3-blue">
+        <h2 class="w3-center" style="font-size:30px; padding: 3px;">Rescue Cats & Kittens</h2>
     </div>
-        <div class="w3-content w3-display-container">
-            <img class="mySlides" th:src="@{/catimages/k1.jpeg}" style="width:100%">
-            <img class="mySlides" th:src="@{/catimages/k2.jpeg}" style="width:100%">
-            <img class="mySlides" th:src="@{/catimages/k3.jpeg}" style="width:100%">
-            <img class="mySlides" th:src="@{/catimages/k4.jpeg}" style="width:100%">
-            <img class="mySlides" th:src="@{/catimages/k5.jpeg}" style="width:100%">
-            <img class="mySlides" th:src="@{/catimages/k6.jpeg}" style="width:100%">
-            BigButt
+    <section>
+        <div class="w3-content">
+            <div class="w3-display-container" style="float: left; width: 50%;">
+                <img class="mySlides w3-border-top w3-border-bottom" th:src="@{/catimages/k1.jpeg}" style="width:100%; border: 5px solid black;">
+                <img class="mySlides w3-border-top w3-border-bottom" th:src="@{/catimages/k2.jpeg}" style="width:100%; border: 5px solid black;">
+                <img class="mySlides w3-border-top w3-border-bottom" th:src="@{/catimages/k3.jpeg}" style="width:100%; border: 5px solid black;">
+                <img class="mySlides w3-border-top w3-border-bottom" th:src="@{/catimages/k4.jpeg}" style="width:100%; border: 5px solid black;">
+                <img class="mySlides w3-border-top w3-border-bottom" th:src="@{/catimages/k5.jpeg}" style="width:100%; border: 5px solid black;">
+                <img class="mySlides w3-border-top w3-border-bottom" th:src="@{/catimages/k6.jpeg}" style="width:100%; border: 5px solid black;">
+                BigButt
+            </div>
+            <div style="float: right; width: 50%;">
+
+                <article>
+                    <p style="font-size:19px;">
+                        As you browse through these captivating cat photos, it's important to remember that behind each adorable face lies a story.
+                        These feline companions are just a few among the thousands in need of assistance. By participating in this game, you have a unique opportunity to make a difference in their lives. Your involvement can help raise awareness, gather resources, or even directly contribute to initiatives that provide care, shelter, and love to these precious creatures.
+                        So as you enjoy these delightful images, know that your engagement here is not only entertaining but also has the power to bring positive change to the lives of countless cats in need.
+                    </p>
+
+                </article>
+            </div>
         </div>
+
         <!--Script below belongs to images above to scroll -->
         <script>
 var slideIndex = 0;
@@ -118,8 +107,10 @@ function carousel() {
 }
 </script>
 
+    </section>
+
 <footer>
-    <p class="text-center">&copy; 2023 RescueMeow. All rights reserved.</p>
+    <p class="text-center w3-blue" style="padding: 30px;">&copy; 2023 RescueMeow. All rights reserved.</p>
 </footer>
 </body>
 </html>
